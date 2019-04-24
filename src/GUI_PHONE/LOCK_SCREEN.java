@@ -14,7 +14,7 @@ import java.text.*;
 
 public class LOCK_SCREEN extends JFrame {
 
-    /* Nique ta mère fdp*/
+    /* Test*/
 
     ClockLabel timeLable = new ClockLabel("time");
     ClockLabel dateLable = new ClockLabel("date");
