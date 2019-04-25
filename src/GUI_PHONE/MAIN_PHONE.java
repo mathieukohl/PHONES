@@ -5,6 +5,8 @@ import javax.swing.*;
 public class MAIN_PHONE {
     public static void main(String[] args){
 
+        /*Test synchro git*/
+
         JFrame lock = new MDP_SCREEN();
 
         lock.setSize(480, 800);
