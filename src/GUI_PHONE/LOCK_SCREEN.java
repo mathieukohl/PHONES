@@ -79,14 +79,9 @@ public class LOCK_SCREEN extends JFrame {
             t.start();
         }
 
-
         public void actionPerformed(ActionEvent ae) {
             Date d = new Date();
             setText(sdf.format(d));
-
-
         }
-
-
     }
 }

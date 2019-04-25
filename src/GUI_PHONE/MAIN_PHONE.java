@@ -6,6 +6,7 @@ public class MAIN_PHONE {
     public static void main(String[] args){
 
         /*Test synchro git*/
+        //test2
 
         JFrame lock = new MDP_SCREEN();
 
