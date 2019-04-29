@@ -4,7 +4,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import javax.swing.*;
 
 public class HOME_SCREEN extends JFrame {
@@ -14,15 +13,10 @@ public class HOME_SCREEN extends JFrame {
     private JPanel main = new JPanel();
     private JPanel footer = new JPanel();
 
-    private ImageIcon headerbat = new ImageIcon("Macintosh HD/Users/KohlMathieu/Desktop/GUI PHONE/MMPHONE/IMAGE/sbLeft.png");
-    private JLabel batterie = new JLabel(headerbat);
-
-    ImageIcon i = new ImageIcon("Macintosh HD/Users/KohlMathieu/IdeaProjects/PHONES/src/GUI_PHONE/wallpaper.jpeg");
-    JLabel wallpaper = new JLabel(i);
-
     private JButton home = new JButton();
 
     ClockLabel timeLable = new ClockLabel("time");
+
 
 
 
@@ -30,17 +24,15 @@ public class HOME_SCREEN extends JFrame {
        setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 
-
-
        header.setSize(480,30);
        header.setLayout(new GridLayout(1,3));
        header.add(timeLable);
-       header.add(batterie);
+       //header.add(batterie);
        header.setBackground(Color.black);
        header.setVisible(true);
        add(header, BorderLayout.NORTH);
 
-       main.add(wallpaper);
+       //main.add(wallpaper);
        main.setSize(480,670);
        main.setVisible(true);
        add(main);
