@@ -28,9 +28,8 @@ public class HOME_SCREEN extends JFrame {
     private JPanel footer = new JPanel();
 
     private ImageIcon iphone = (new ImageIcon("C:\\Users\\Admin\\Documents\\HES-SO\\S2\\POO\\Projet Smartphone\\Images\\iPhone3.png"));
-    private ImageIcon homeButton = new ImageIcon("C:\\Users\\Admin\\Documents\\HES-SO\\S2\\POO\\Projet Smartphone\\Images\\homeButton.png");
-    //private ImageIcon wallpaper = new ImageIcon("C:\\Users\\Admin\\Documents\\HES-SO\\S2\\POO\\Projet Smartphone\\Images\\WallpaperSpace.jpg");
-    ImageIcon wallpaper = new ImageIcon(new ImageIcon("C:\\\\Users\\\\Admin\\\\Documents\\\\HES-SO\\\\S2\\\\POO\\\\Projet Smartphone\\\\Images\\\\WallpaperRoute.jpg").getImage().getScaledInstance(310, 500, Image.SCALE_DEFAULT));
+    private ImageIcon homeButton = new ImageIcon(new ImageIcon("C:\\\\Users\\\\Admin\\\\Documents\\\\HES-SO\\\\S2\\\\POO\\\\Projet Smartphone\\\\Images\\\\homeButton.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+    private ImageIcon wallpaper = new ImageIcon(new ImageIcon("C:\\\\Users\\\\Admin\\\\Documents\\\\HES-SO\\\\S2\\\\POO\\\\Projet Smartphone\\\\Images\\\\WallpaperRoute.jpg").getImage().getScaledInstance(310, 500, Image.SCALE_DEFAULT));
 
     private JLabel frameIphone = new JLabel(iphone);
     private JLabel fondEcran = new JLabel(wallpaper);
@@ -53,7 +52,6 @@ public class HOME_SCREEN extends JFrame {
        add(frame);
 
        //Ajout fond d'écrans sur la frame
-
        fondEcran.setBounds(0,25,310,478);
        fondEcran.setVisible(true);
        frame.add(fondEcran);
@@ -69,7 +67,7 @@ public class HOME_SCREEN extends JFrame {
        //Mettre un bouton avec une image
        JButton button = new JButton(homeButton);
        button.setMargin(new Insets(0, 0, 0, 0));
-       //button.setBorder(null);
+       button.setBorder(null);
        button.setBounds(218,651,50,50);
        button.setBackground(Color.white);
        add(button);
