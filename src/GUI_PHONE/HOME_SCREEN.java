@@ -27,11 +27,13 @@ public class HOME_SCREEN extends JFrame {
     private JPanel main = new JPanel();
     private JPanel footer = new JPanel();
 
-    private JLabel label = new JLabel ("Test");
+    private ImageIcon iphone = (new ImageIcon("C:\\Users\\Admin\\Documents\\HES-SO\\S2\\POO\\Projet Smartphone\\Images\\iPhone3.png"));
+    private ImageIcon homeButton = new ImageIcon("C:\\Users\\Admin\\Documents\\HES-SO\\S2\\POO\\Projet Smartphone\\Images\\homeButton.png");
+    //private ImageIcon wallpaper = new ImageIcon("C:\\Users\\Admin\\Documents\\HES-SO\\S2\\POO\\Projet Smartphone\\Images\\WallpaperSpace.jpg");
+    ImageIcon wallpaper = new ImageIcon(new ImageIcon("C:\\\\Users\\\\Admin\\\\Documents\\\\HES-SO\\\\S2\\\\POO\\\\Projet Smartphone\\\\Images\\\\WallpaperRoute.jpg").getImage().getScaledInstance(310, 500, Image.SCALE_DEFAULT));
 
-    ImageIcon iphone = (new ImageIcon("C:\\Users\\Admin\\Documents\\HES-SO\\S2\\POO\\Projet Smartphone\\Images\\iPhone3.png"));
-
-    JLabel frameIphone = new JLabel(iphone);
+    private JLabel frameIphone = new JLabel(iphone);
+    private JLabel fondEcran = new JLabel(wallpaper);
 
     ClockLabel timeLable = new ClockLabel("time");
 
@@ -47,17 +49,24 @@ public class HOME_SCREEN extends JFrame {
        frame.setBounds(86,89,310,553);
        frame.setBackground(Color.red);
        frame.setVisible(true);
+       frame.setLayout(null);
        add(frame);
 
+       //Ajout fond d'écrans sur la frame
 
+       fondEcran.setBounds(0,25,310,478);
+       fondEcran.setVisible(true);
+       frame.add(fondEcran);
+
+       //Ajout de la barre en haut de l'écran de l'Iphone
        header.add(timeLable);
        header.setBackground(Color.black);
        header.setVisible(true);
-       header.setBounds(0,0,310,50);
+       header.setBounds(0,0,310,20);
+       header.setSize(310,25);
        frame.add(header);
 
        //Mettre un bouton avec une image
-       ImageIcon homeButton = new ImageIcon("C:\\Users\\Admin\\Documents\\HES-SO\\S2\\POO\\Projet Smartphone\\Images\\homeButton.png");
        JButton button = new JButton(homeButton);
        button.setMargin(new Insets(0, 0, 0, 0));
        //button.setBorder(null);
@@ -73,11 +82,14 @@ public class HOME_SCREEN extends JFrame {
        add(main);
 
 
-       /*
+       //Ajout de la barre en bas de l'écran de l'Iphone
        footer.setSize(420,420);
        footer.setVisible(true);
        footer.setBackground(Color.black);
-       main.add(footer, BorderLayout.SOUTH);*/
+       footer.setSize(310,50);
+       footer.setBounds(0,503,310,50);
+       footer.setOpaque(true);
+       frame.add(footer);
 
 
    }
