@@ -27,7 +27,8 @@ public class HOME_SCREEN extends JFrame {
     private JPanel main = new JPanel();
     private JPanel footer = new JPanel();
 
-    private ImageIcon iphone = (new ImageIcon("C:\\Users\\Admin\\Documents\\HES-SO\\S2\\POO\\Projet Smartphone\\Images\\iPhone3.png"));
+   private ImageIcon iphone = (new ImageIcon("C:\\Users\\Admin\\Documents\\HES-SO\\S2\\POO\\Projet Smartphone\\Images\\iPhone3.png"));
+    //private ImageIcon iphone = new ImageIcon(new ImageIcon("C:\\\\Users\\\\Admin\\\\Documents\\\\HES-SO\\\\S2\\\\POO\\\\Projet Smartphone\\\\Images\\\\iPhone4.png").getImage().getScaledInstance(480, 800, Image.SCALE_DEFAULT));
     private ImageIcon homeButton = new ImageIcon(new ImageIcon("C:\\\\Users\\\\Admin\\\\Documents\\\\HES-SO\\\\S2\\\\POO\\\\Projet Smartphone\\\\Images\\\\homeButton.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
     private ImageIcon wallpaper = new ImageIcon(new ImageIcon("C:\\\\Users\\\\Admin\\\\Documents\\\\HES-SO\\\\S2\\\\POO\\\\Projet Smartphone\\\\Images\\\\WallpaperRoute.jpg").getImage().getScaledInstance(310, 500, Image.SCALE_DEFAULT));
 
@@ -37,6 +38,9 @@ public class HOME_SCREEN extends JFrame {
     ClockLabel timeLable = new ClockLabel("time");
 
    public HOME_SCREEN() {
+
+       this.setUndecorated(true);
+      this.setBackground(new Color(0,0,0));
        setDefaultCloseOperation(EXIT_ON_CLOSE);
        setSize(480,800);
        setLayout(null);
@@ -79,7 +83,6 @@ public class HOME_SCREEN extends JFrame {
        main.setVisible(true);
        add(main);
 
-
        //Ajout de la barre en bas de l'écran de l'Iphone
        footer.setSize(420,420);
        footer.setVisible(true);
@@ -90,6 +93,12 @@ public class HOME_SCREEN extends JFrame {
        frame.add(footer);
 
 
+   }
+
+   public void paintComponent(Graphics g){
+       paintComponent(g);
+       ImageIcon i = new ImageIcon("C:\\\\Users\\\\Admin\\\\Documents\\\\HES-SO\\\\S2\\\\POO\\\\Projet Smartphone\\\\Images\\\\iPhone5.png");
+       i.paintIcon(this,g,70,70);
    }
 
        class ClockLabel extends JLabel implements ActionListener {
