@@ -1,11 +1,12 @@
 package GUI_PHONE;
 
-import javax.swing.*;
+
+import CALCULATRICE.CALCULATRICE_APP;
 
 public class MAIN_PHONE {
     public static void main(String[] args){
 
-        new HOME_SCREEN().setVisible(true);
+        new PHONE().setVisible(true);
 
     }
 }
