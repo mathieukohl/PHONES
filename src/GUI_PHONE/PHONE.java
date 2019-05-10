@@ -1,17 +1,32 @@
 package GUI_PHONE;
 
+
+
+
+import CONTACT.CONTACT_APP;
+import CONTACT.NEWCONTACT_APP;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 
 public class PHONE extends JFrame {
 
+
     private JPanel header = new JPanel();
     private JPanel main = new JPanel();
 
-    private ImageIcon iphone = (new ImageIcon("/Users/KohlMathieu/IdeaProjects/PHONES/src/IMAGES/iPhone3.jpeg"));
+    private ImageIcon homeButton = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\homeButton.jpg").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+
+    private ImageIcon iphone = (new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\iphone.jpg"));
 
     private JLabel frameIphone = new JLabel(iphone);
+
+    NEWCONTACT_APP newcontact_app = new NEWCONTACT_APP();
+    CONTACT_APP contact_app = new CONTACT_APP();
+    HOME_SCREEN home_screen = new HOME_SCREEN();
+
+    private JButton buttonH = new JButton(homeButton);
 
     CLOCK timeLable = new CLOCK("time");
 
@@ -22,14 +37,22 @@ public class PHONE extends JFrame {
         header.setBounds(86,89,310,36);
         header.setVisible(true);
         header.setLayout(null);
+        //.setBackground(new Color(0,0,0,0)); //a=0 = transparant
         header.add(timeLable);
         add(header);
+
 
         HOME_SCREEN home_screen = new HOME_SCREEN();
         home_screen.setVisible(true);
         home_screen.setBackground(Color.white);
         home_screen.setBounds(86,120,310,584);
         add(home_screen);
+
+
+
+        //add(newcontact_app);
+        //add(contact_app);
+
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -52,5 +75,13 @@ public class PHONE extends JFrame {
         main.setVisible(true);
         add(main);
 
+        buttonH.setMargin(new Insets(0, 0, 0, 0));
+        buttonH.setBorder(null);
+        buttonH.setBounds(218,651,50,50);
+        buttonH.setBackground(new Color(0,0,0,0));
+        buttonH.setVisible(true);
+        add(buttonH);
     }
+
+
 }
