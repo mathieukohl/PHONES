@@ -1,6 +1,5 @@
 package GUI_PHONE;
 
-import CONTACT.NEWCONTACT_APP;
 
 import javax.swing.*;
 
