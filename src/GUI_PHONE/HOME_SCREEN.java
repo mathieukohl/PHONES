@@ -131,6 +131,7 @@ public class HOME_SCREEN extends JPanel {
             buttonC.setVisible(false);
             buttonCalculatrice.setVisible(false);
             buttonG.setVisible(false);
+            setVisible(false);
             contact_app.setVisible(true);
 
         }
@@ -145,6 +146,7 @@ public class HOME_SCREEN extends JPanel {
             buttonC.setVisible(false);
             buttonCalculatrice.setVisible(false);
             buttonG.setVisible(false);
+            setVisible(false);
             calculatrice_app.setVisible(true);
 
         }
@@ -159,6 +161,7 @@ public class HOME_SCREEN extends JPanel {
             buttonC.setVisible(false);
             buttonCalculatrice.setVisible(false);
             buttonG.setVisible(false);
+            setVisible(false);
             homegallery.setVisible(true);
         }
     }

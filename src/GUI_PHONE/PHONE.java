@@ -142,7 +142,6 @@ public class PHONE extends JFrame {
 
             home_screen.setVisible(true);
 
-
         }
     }
 
