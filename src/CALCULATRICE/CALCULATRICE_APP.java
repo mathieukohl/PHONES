@@ -36,7 +36,7 @@ public class CALCULATRICE_APP extends JPanel {
 
         setVisible(true);
         setLayout(null);
-        setBounds(0, 0, 310, 525);
+        setBounds(86, 120, 310, 525);
         setBackground(Color.pink);
 
         ecran.setBounds(0, 10, 305, 75);

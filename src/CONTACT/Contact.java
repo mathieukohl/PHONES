@@ -151,7 +151,7 @@ public class Contact extends JPanel implements ActionListener {
 
 
         //LABEL OF TEXTFIELD
-        labelTfPanel.setLayout(new GridLayout(15, 1));
+        labelTfPanel.setLayout(new GridLayout(18, 1));
         labelTfPanel.add(nameLb);
         labelTfPanel.add(nameTf);
         labelTfPanel.add(firstnameLb);
@@ -164,6 +164,8 @@ public class Contact extends JPanel implements ActionListener {
         labelTfPanel.add(adressTf);
         labelTfPanel.add(ZIPLb);
         labelTfPanel.add(ZIPTf);
+
+
 
         //ADDINGS PANNEL
         add(scrollPanePanel,BorderLayout.NORTH); //CONTACT LIST
@@ -210,7 +212,7 @@ public class Contact extends JPanel implements ActionListener {
 
         setLayout(null);
         setBackground(Color.green);
-        setBounds(0, 0, 310, 525);
+        setBounds(86, 120, 310, 525);
 
 
         //ADD FONDECRAN ON THE FRAME
@@ -220,11 +222,14 @@ public class Contact extends JPanel implements ActionListener {
         fondEcran.setLayout(null);
         add(fondEcran);
 
+
         contactLb.setBounds(10,5,150,30);
         contactLb.setVisible(true);
         contactLb.setLayout(null);
         contactLb.setFont(title);
         fondEcran.add(contactLb);
+
+
 
 
         addButton.setBounds(250, 5, 50, 30);

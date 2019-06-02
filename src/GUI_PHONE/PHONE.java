@@ -13,6 +13,7 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
 
 public class PHONE extends JFrame {
 
@@ -24,21 +25,37 @@ public class PHONE extends JFrame {
     //IMAGES
     private ImageIcon homeButton = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\homeButton.jpg").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
     private ImageIcon iphone = (new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\iphone.jpg"));
+    private ImageIcon wallpaper = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\Wallpaper.jpg").getImage().getScaledInstance(310, 525, Image.SCALE_DEFAULT));
+    private ImageIcon contactButton = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\Contacts.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+    private ImageIcon eteindre = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\deleteb.jpg").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+    private ImageIcon calculateButton = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\calculatrice.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+    private ImageIcon galleryButton = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\gallery.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+
+
+
+    //BUTTON
+    private JButton buttonH = new JButton(homeButton);
+    private JButton buttonC = new JButton(contactButton);
+    private JButton buttonG = new JButton(galleryButton);
+    private JButton buttonCalculatrice = new JButton(calculateButton);
+    public JButton buttonEteindre = new JButton(eteindre);
+
 
     //LABEL
     private JLabel frameIphone = new JLabel(iphone);
+    private JLabel fondEcran = new JLabel(wallpaper);
 
     //IMPLEMENTATION
     private CALCULATRICE_APP calculatrice_app = new CALCULATRICE_APP();
     private Contact contact = new Contact();
     private HOMEGALLERY homegallery = new HOMEGALLERY();
 
-    HOME_SCREEN home_screen = new HOME_SCREEN(this);
+    HOME_SCREEN home_screen = new HOME_SCREEN(this,contact,calculatrice_app,homegallery, fondEcran, buttonC, buttonG, buttonCalculatrice, buttonEteindre);
     CLOCK timeLable = new CLOCK("time");
 
 
-    //BUTTON
-    private JButton buttonH = new JButton(homeButton);
+
+
 
 
 
@@ -79,8 +96,16 @@ public class PHONE extends JFrame {
         buttonH.addActionListener(new ButtonListenerHome());
         footer.add(buttonH);
 
-        //add(home_gallery);
-        //add(newcontact_app);
+        add(homegallery);
+        homegallery.setVisible(false);
+
+        add(contact);
+        contact.setVisible(false);
+
+        add(calculatrice_app);
+        calculatrice_app.setVisible(false);
+
+
         add(home_screen);
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -117,10 +142,6 @@ public class PHONE extends JFrame {
 
             home_screen.setVisible(true);
 
-            //buttonEteindre.setVisible(true);
-           // buttonC.setVisible(true);
-           // buttonG.setVisible(true);
-           // fondEcran.setVisible(true);
 
         }
     }

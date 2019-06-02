@@ -47,7 +47,7 @@ public class HOMEGALLERY extends JPanel {
 
         setVisible(true);
         setLayout(null);
-        setBounds(0, 0, 310, 525);
+        setBounds(86, 120, 310, 525);
         setBackground(Color.white);
 
         addBouton.setBounds(250,5,60,65);

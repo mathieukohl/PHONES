@@ -23,6 +23,7 @@ public class HOME_SCREEN extends JPanel {
     private ImageIcon contactButton = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\Contacts.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
     private ImageIcon calculateButton = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\calculatrice.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
     private ImageIcon wallpaper = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\Wallpaper.jpg").getImage().getScaledInstance(310, 525, Image.SCALE_DEFAULT));
+    private ImageIcon eteindre = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\deleteb.jpg").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
 
 
     //LABEL
@@ -33,21 +34,24 @@ public class HOME_SCREEN extends JPanel {
     private JButton buttonC = new JButton(contactButton);
     private JButton buttonG = new JButton(galleryButton);
     private JButton buttonCalculatrice = new JButton(calculateButton);
+    public JButton buttonEteindre = new JButton(eteindre);
 
 
 
     private PHONE phone;
-    private HOMEGALLERY homegallery = new HOMEGALLERY();
+    private HOMEGALLERY homegallery;// = new HOMEGALLERY();
+    private Contact contact_app;// = new Contact();
+    private CALCULATRICE_APP calculatrice_app; //= new CALCULATRICE_APP();
 
-    private Contact contact_app = new Contact();
-    private CALCULATRICE_APP calculatrice_app = new CALCULATRICE_APP();
 
-
-    public HOME_SCREEN(PHONE phone) {
+    public HOME_SCREEN(PHONE phone, Contact contact_app, CALCULATRICE_APP calculatrice_app, HOMEGALLERY homegallery, JLabel fondEcran, JButton buttonC, JButton buttonG, JButton buttonCalculatrice, JButton buttonEteindre) {
 
         //SONGA OFFSHORE
 
         this.phone=phone;
+        this.contact_app=contact_app;
+        this.calculatrice_app=calculatrice_app;
+        this.homegallery=homegallery;
 
         setLayout(null);
         setBounds(86, 120, 310, 520);
@@ -57,6 +61,8 @@ public class HOME_SCREEN extends JPanel {
         add(contact_app);
         contact_app.readContact();
         contact_app.setVisible(false);
+
+
 
         add(calculatrice_app);
         calculatrice_app.setVisible(false);
@@ -102,6 +108,17 @@ public class HOME_SCREEN extends JPanel {
         fondEcran.add(buttonCalculatrice);
 
 
+        //Ajout du bouton Eteindre avec image
+        buttonEteindre.setBorder(null);
+        buttonEteindre.setMargin(new Insets(0,0,0,0));
+        buttonEteindre.setBackground(new Color(0,0,0,0));
+        buttonEteindre.setFocusPainted(false);
+        buttonEteindre.setBorderPainted(false);
+        buttonEteindre.setContentAreaFilled(false);
+        buttonEteindre.setBounds(190, 10, 50, 50);
+        buttonEteindre.setVisible(true);
+        buttonEteindre.addActionListener(new ButtonListenerEteindre());
+        fondEcran.add(buttonEteindre);
 
     }
 
@@ -110,6 +127,10 @@ public class HOME_SCREEN extends JPanel {
         public void actionPerformed(ActionEvent e) {
 
             fondEcran.setVisible(false);
+            buttonEteindre.setVisible(false);
+            buttonC.setVisible(false);
+            buttonCalculatrice.setVisible(false);
+            buttonG.setVisible(false);
             contact_app.setVisible(true);
 
         }
@@ -120,6 +141,10 @@ public class HOME_SCREEN extends JPanel {
         public void actionPerformed(ActionEvent e) {
 
             fondEcran.setVisible(false);
+            buttonEteindre.setVisible(false);
+            buttonC.setVisible(false);
+            buttonCalculatrice.setVisible(false);
+            buttonG.setVisible(false);
             calculatrice_app.setVisible(true);
 
         }
@@ -130,10 +155,21 @@ public class HOME_SCREEN extends JPanel {
         public void actionPerformed(ActionEvent e) {
 
             fondEcran.setVisible(false);
+            buttonEteindre.setVisible(false);
+            buttonC.setVisible(false);
+            buttonCalculatrice.setVisible(false);
+            buttonG.setVisible(false);
             homegallery.setVisible(true);
         }
     }
 
+    public class ButtonListenerEteindre implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            phone.dispose();
+            System.exit(0);
+        }
+    }
 
 
 
