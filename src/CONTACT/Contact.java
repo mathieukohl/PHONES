@@ -1,5 +1,7 @@
 package CONTACT;
 
+import GALLERY.HOMEGALLERY;
+
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -10,6 +12,8 @@ import java.io.*;
 
 
 public class Contact extends JPanel implements ActionListener {
+
+    int aide =1;
 
 
     /**
@@ -40,6 +44,7 @@ public class Contact extends JPanel implements ActionListener {
     static String backButtonT = "BACK";
     static String yesButtonT = "YES";
     static String noButtonT = "NO";
+    static String addPhoto = "PHOTO";
 
 
     //TEXT LABEL
@@ -64,7 +69,7 @@ public class Contact extends JPanel implements ActionListener {
     Validator validator = new Validator();
 
     //IMAGES FOR BUTTON
-    private ImageIcon addContact = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\addb.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+    private ImageIcon addphoto = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\Wallpaper.jpg").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
     private ImageIcon deleteContact = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\deleteb.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
     private ImageIcon backContact = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\backb.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
 
@@ -91,6 +96,7 @@ public class Contact extends JPanel implements ActionListener {
     protected static JButton deleteButton = new JButton(deleteButtonT);
     private static JButton cancelButton	= new JButton(cancelButtonT);
     private static JButton backButton = new JButton(backButtonT);
+    private static JButton addPhotoButton = new JButton(addPhoto);
 
     //BUTTONS
     private static JButton yesButton = new JButton(yesButtonT);
@@ -115,13 +121,20 @@ public class Contact extends JPanel implements ActionListener {
             addressLb = new JLabel(addressLabelT),
             ZIPLb = new JLabel(zipcityLabelT);
 
+    protected static JLabel image = new JLabel();
+
 
     //TABS
     private static String[] contactList;
     private static String[] contactArray;
     protected static ContactData[] contactData;
 
+    private HOMEGALLERY homegallery;
+    private Contact contact;
+
     public Contact() {
+
+        this.contact = this;
 
         //SCROLLPANE TO SCROLL ON CONTACT LIST
         JScrollPane scrollPane = new JScrollPane(contactL);
@@ -145,13 +158,15 @@ public class Contact extends JPanel implements ActionListener {
         buttonPanel.add(updateButton);
         buttonPanel.add(deleteButton);
         buttonPanel.add(backButton);
-       // buttonPanel.add(yesButton);
+        //buttonPanel.add(addPhotoButton);
+        // buttonPanel.add(yesButton);
         //buttonPanel.add(noButton);
 
-
+        image.setIcon(addphoto);
 
         //LABEL OF TEXTFIELD
         labelTfPanel.setLayout(new GridLayout(18, 1));
+        labelTfPanel.add(image);
         labelTfPanel.add(nameLb);
         labelTfPanel.add(nameTf);
         labelTfPanel.add(firstnameLb);
@@ -164,6 +179,8 @@ public class Contact extends JPanel implements ActionListener {
         labelTfPanel.add(adressTf);
         labelTfPanel.add(ZIPLb);
         labelTfPanel.add(ZIPTf);
+        labelTfPanel.add(addPhotoButton);
+
 
 
 
@@ -181,6 +198,7 @@ public class Contact extends JPanel implements ActionListener {
         updateButton.setVisible(false);
         deleteButton.setVisible(false);
         backButton.setVisible(false);
+        addPhotoButton.setVisible(false);
 
         //ACTION LISTENER
         addButton.addActionListener(new AddContact());
@@ -190,6 +208,7 @@ public class Contact extends JPanel implements ActionListener {
         updateButton.addActionListener(new ValidateExistingContact());
         deleteButton.addActionListener(new DeleteContact());
         backButton.addActionListener(new BackContact());
+        addPhotoButton.addActionListener(new AddPhoto());
         //yesButton.addActionListener(new YesSup());
         //noButton.addActionListener(new NoSup());
 
@@ -228,8 +247,6 @@ public class Contact extends JPanel implements ActionListener {
         contactLb.setLayout(null);
         contactLb.setFont(title);
         fondEcran.add(contactLb);
-
-
 
 
         addButton.setBounds(250, 5, 50, 30);
@@ -311,6 +328,7 @@ public class Contact extends JPanel implements ActionListener {
         updateButton.setFont(fontButton);
         deleteButton.setFont(fontButton);
         backButton.setFont(fontButton);
+        addPhotoButton.setFont(fontButton);
 
 
 
@@ -525,6 +543,29 @@ public class Contact extends JPanel implements ActionListener {
         contactL.setEnabled(true);
         showDefault();
     }
+
+    class AddPhoto implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            formPanel.setVisible(false);
+            labelTfPanel.setVisible(false);
+            cancelButton.setVisible(false);
+            saveButton.setVisible(false);
+            fondEcran.setVisible(false);
+
+
+
+            HOMEGALLERY homegallery = new HOMEGALLERY(aide);
+            homegallery.setBounds(0,0,310,525);
+            add(homegallery);
+            setComponentZOrder(homegallery,0);
+
+
+        }
+    }
+
     class AddContact implements ActionListener{
 
         @Override
@@ -542,6 +583,7 @@ public class Contact extends JPanel implements ActionListener {
             updateButton.setVisible(false);
             contactLb.setVisible(false);
             addButton.setVisible(false);
+            addPhotoButton.setVisible(true);
             setEditable(true);
         }
     }

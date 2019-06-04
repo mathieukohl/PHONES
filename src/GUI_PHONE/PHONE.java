@@ -27,7 +27,7 @@ public class PHONE extends JFrame {
     private ImageIcon iphone = (new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\iphone.jpg"));
     private ImageIcon wallpaper = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\Wallpaper.jpg").getImage().getScaledInstance(310, 525, Image.SCALE_DEFAULT));
     private ImageIcon contactButton = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\Contacts.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
-    private ImageIcon eteindre = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\deleteb.jpg").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+    private ImageIcon eteindre = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\eteindre.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
     private ImageIcon calculateButton = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\calculatrice.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
     private ImageIcon galleryButton = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\gallery.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
 

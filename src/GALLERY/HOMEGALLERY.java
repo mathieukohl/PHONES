@@ -1,6 +1,8 @@
 package GALLERY;
 
 
+import CONTACT.Contact;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -12,6 +14,8 @@ import java.nio.file.Paths;
 
 public class HOMEGALLERY extends JPanel {
 
+    int aide = 1;
+
     private JPanel photoPanel = new JPanel();
 
     private JLabel galleriePhoto = new JLabel("Photos");
@@ -19,7 +23,7 @@ public class HOMEGALLERY extends JPanel {
     private JLabel labelZoom = new JLabel();
     private JLabel labelZoomBouton = new JLabel();
 
-    File path = new File("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images");
+    File path = new File("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\ALBUM");
 
     // on a le chemin des images dans ce tableau ci-dessous
     File[] filesInFolder = path.listFiles();
@@ -32,16 +36,17 @@ public class HOMEGALLERY extends JPanel {
     ImageIcon imageAdd = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\addb.jpg").getImage().getScaledInstance(58, 50, Image.SCALE_DEFAULT));
     JButton addBouton = new JButton(imageAdd);
 
-    ImageIcon imageDelete = new ImageIcon(new ImageIcon("CC:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\deleteb.jpg").getImage().getScaledInstance(58, 50, Image.SCALE_DEFAULT));
+    ImageIcon imageDelete = new ImageIcon(new ImageIcon("CC:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\backb.jpg").getImage().getScaledInstance(58, 50, Image.SCALE_DEFAULT));
     JButton deleteBouton = new JButton(imageDelete);
 
     JLabel imageLabel = new JLabel();
     File pathIconeZoomee;
 
     JScrollPane scrollPane = new JScrollPane();
+    JScrollBar jScrollBar = new JScrollBar();
 
-    int x = 10;
-    int y = 20;
+
+
 
     public HOMEGALLERY() {
 
@@ -76,7 +81,6 @@ public class HOMEGALLERY extends JPanel {
 
         // JScroll
         scrollPane.setViewportView(listeImages);
-        JScrollBar jScrollBar = new JScrollBar();
         scrollPane.add(jScrollBar);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
@@ -88,20 +92,65 @@ public class HOMEGALLERY extends JPanel {
 
     }
 
+   public HOMEGALLERY(int aide){
+        setVisible(true);
+        setLayout(null);
+        setBounds(86, 120, 310, 525);
+        setBackground(Color.white);
+
+       backBouton.setBounds(250,5,60,65);
+       backBouton.setVisible(true);
+       backBouton.setLayout(null);
+       backBouton.setBackground(new Color(0,0,0,0));
+       backBouton.setBackground(Color.white);
+       backBouton.addActionListener(new ButtonListenerBackContact());
+
+        //Titre Photos
+        galleriePhoto.setBounds(10,10, 200, 50);
+        galleriePhoto.setLayout(null);
+        galleriePhoto.setVisible(true);
+        galleriePhoto.setFont(new Font("Helvetica Neue", Font.BOLD, 25));
+
+        photoPanel.setVisible(true);
+        photoPanel.setLayout(null);
+        photoPanel.setBounds(0,0,310,70);
+        photoPanel.setBackground(Color.white);
+        photoPanel.add(galleriePhoto);
+        photoPanel.add(backBouton);
+        add(photoPanel);
+
+        listeImages = createJPanelGallery(path);
+        add(listeImages);
+
+        // JScroll
+        scrollPane.setViewportView(listeImages);
+        scrollPane.add(jScrollBar);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPane.setBounds(0, 70, 310,455);
+        add(scrollPane);
+        scrollPane.repaint();
+        scrollPane.revalidate();
+    }
+
     public JPanel createJPanelGallery(File folder){
 
+        // on a le chemin des images dans ce tableau ci-dessous
+        filesInFolder = folder.listFiles();
+
+        int x = 10;
+        int y = 20;
+
         JPanel panelImages = new JPanel();
-        panelImages.removeAll();
         panelImages.setVisible(true);
         panelImages.setLayout(null);
         panelImages.setBackground(Color.white);
         panelImages.setPreferredSize(new Dimension(310,20+(filesInFolder.length/2)*150+150));
         panelImages.setBounds(0, 50, 310,20+(filesInFolder.length/2)*150+150);
 
-        // on a le chemin des images dans ce tableau ci-dessous
-        filesInFolder = folder.listFiles();
 
         JButton[] image = new JButton[filesInFolder.length];
+
 
         for (int i = 0; i < filesInFolder.length; i++) {
             ImageIcon icone = new ImageIcon(new ImageIcon(String.valueOf(filesInFolder[i])).getImage().getScaledInstance(125, 125, Image.SCALE_DEFAULT));
@@ -142,7 +191,6 @@ public class HOMEGALLERY extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             scrollPane.setVisible(false);
-            //galleriePhoto.setVisible(false);
             photoPanel.setVisible(false);
             listeImages.setVisible(false);
 
@@ -194,9 +242,38 @@ public class HOMEGALLERY extends JPanel {
             scrollPane.setVisible(true);
             listeImages.setVisible(true);
 
-           /* listeImages.removeAll();
+
             listeImages = createJPanelGallery(path);
-            add(listeImages);*/
+            add(listeImages);
+
+            scrollPane.setViewportView(listeImages);
+            scrollPane.add(jScrollBar);
+            scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+            scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+            scrollPane.setBounds(0, 70, 310,455);
+            add(scrollPane);
+            scrollPane.repaint();
+            scrollPane.revalidate();
+
+
+        }
+    }
+
+    public class ButtonListenerBackContact implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            setVisible(false);
+            Contact contact = new Contact();
+            contact.setBounds(0,0,310,525);
+            add(contact);
+/*
+            formPanel.setVisible(false);
+            labelTfPanel.setVisible(false);
+            cancelButton.setVisible(false);
+            saveButton.setVisible(false);
+            fondEcran.setVisible(false);
+            
+ */
 
 
         }
@@ -240,6 +317,17 @@ public class HOMEGALLERY extends JPanel {
                     e1.printStackTrace();
                 }
 
+                listeImages = createJPanelGallery(path);
+                add(listeImages);
+
+                scrollPane.setViewportView(listeImages);
+                scrollPane.add(jScrollBar);
+                scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+                scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+                scrollPane.setBounds(0, 70, 310,455);
+                add(scrollPane);
+                scrollPane.repaint();
+                scrollPane.revalidate();
             }
 
 
