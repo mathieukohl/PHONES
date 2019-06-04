@@ -13,7 +13,6 @@ public class ContactData implements Serializable {
     private String phone;
     private String address;
     private String zipcity;
-    private String comment;
 
     /**
      *
@@ -28,7 +27,7 @@ public class ContactData implements Serializable {
         phone = "";
         address = "";
         zipcity = "";
-        comment = "";
+
     }
 
     /**

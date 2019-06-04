@@ -272,7 +272,7 @@ public class HOMEGALLERY extends JPanel {
             cancelButton.setVisible(false);
             saveButton.setVisible(false);
             fondEcran.setVisible(false);
-            
+
  */
 
 
