@@ -23,8 +23,8 @@ public class HOMEGALLERY extends JPanel {
     private JLabel labelZoom = new JLabel();
     private JLabel labelZoomBouton = new JLabel();
 
-    File path = new File("C:\\Users\\mathi\\IdeaProjects\\PHONES\\ALBUM");
-
+    //File path = new File("C:\\Users\\mathi\\IdeaProjects\\PHONES\\ALBUM");
+    File path = new File(".\\ALBUM");
 
     //File path = new File(String.valueOf(getClass().getResource("\\ALBUM")));
 
