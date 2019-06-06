@@ -1,5 +1,6 @@
 package CONTACT;
 
+import javax.swing.*;
 import java.io.Serializable;
 
 
@@ -13,6 +14,7 @@ public class ContactData implements Serializable {
     private String phone;
     private String address;
     private String zipcity;
+   // private ImageIcon image;
 
     /**
      *
@@ -27,6 +29,7 @@ public class ContactData implements Serializable {
         phone = "";
         address = "";
         zipcity = "";
+
 
     }
 
@@ -49,6 +52,7 @@ public class ContactData implements Serializable {
         this.phone = phone;
         this.address = address;
         this.zipcity = zipcity;
+       // this.image = image;
 
     }
 

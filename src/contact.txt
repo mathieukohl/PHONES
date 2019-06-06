@@ -27,5 +27,5 @@ Brice - Zettel - ZettelBrice@gmail.fr - 0783483821 - Paris - 30304
 Loic - Limar - loic@limar.com - 0332845319 - Avenue du paradis - Papette
 Vador - Darth - contact@etoiledelamort.com - 0457382954 - rue des vilains - 1967
 Fabrice - Corti - fabriceCorti@hotmail.com - 0743892097 - chemin du drift - 1964 Agettes
-Vic - Princess - princess@gmail.com - 0793169192 - Route du Zotzet 5 - 3963 Montana
+#valeurSupprimee - #valeurSupprimee - #valeurSupprimee - #valeurSupprimee - #valeurSupprimee - #valeurSupprimee
 Marc - Vial - marcvial@gmail.com - 0784657391 - chemin de la gare 12 - semsale

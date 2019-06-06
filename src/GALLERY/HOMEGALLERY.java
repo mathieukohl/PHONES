@@ -23,20 +23,23 @@ public class HOMEGALLERY extends JPanel {
     private JLabel labelZoom = new JLabel();
     private JLabel labelZoomBouton = new JLabel();
 
-    File path = new File("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\ALBUM");
+    File path = new File("C:\\Users\\mathi\\IdeaProjects\\PHONES\\ALBUM");
+
+
+    //File path = new File(String.valueOf(getClass().getResource("\\ALBUM")));
 
     // on a le chemin des images dans ce tableau ci-dessous
     File[] filesInFolder = path.listFiles();
 
     JPanel listeImages ;
 
-    ImageIcon imageBack = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\backb.jpg").getImage().getScaledInstance(58, 50, Image.SCALE_DEFAULT));
+    ImageIcon imageBack = new ImageIcon(new ImageIcon(getClass().getResource("/backb.jpg")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
     JButton backBouton = new JButton(imageBack);
 
-    ImageIcon imageAdd = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\addb.jpg").getImage().getScaledInstance(58, 50, Image.SCALE_DEFAULT));
+    ImageIcon imageAdd = new ImageIcon(new ImageIcon(getClass().getResource("/addb.jpg")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
     JButton addBouton = new JButton(imageAdd);
 
-    ImageIcon imageDelete = new ImageIcon(new ImageIcon("CC:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\backb.jpg").getImage().getScaledInstance(58, 50, Image.SCALE_DEFAULT));
+    ImageIcon imageDelete = new ImageIcon(new ImageIcon(getClass().getResource("/deleteb.jpg")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
     JButton deleteBouton = new JButton(imageDelete);
 
     JLabel imageLabel = new JLabel();

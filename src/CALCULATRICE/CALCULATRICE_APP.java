@@ -26,7 +26,7 @@ public class CALCULATRICE_APP extends JPanel {
     private JPanel operateurPanel = new JPanel();
     private JPanel chiffre = new JPanel();
 
-    private ImageIcon image = new ImageIcon(new ImageIcon("C:\\Users\\Admin\\Documents\\HES-SO\\S2\\POO\\PHONES\\src\\IMAGES\\calcul.jpg").getImage().getScaledInstance(310, 135, Image.SCALE_DEFAULT));
+    private ImageIcon image = new ImageIcon(new ImageIcon(getClass().getResource("/crop.jpg")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
     private JLabel imageFond = new JLabel(image);
 
     int x = 11;
@@ -37,7 +37,7 @@ public class CALCULATRICE_APP extends JPanel {
         setVisible(true);
         setLayout(null);
         setBounds(86, 120, 310, 525);
-        setBackground(Color.pink);
+        setBackground(Color.white);
 
         ecran.setBounds(0, 10, 305, 75);
         ecran.setLayout(null);
@@ -57,20 +57,21 @@ public class CALCULATRICE_APP extends JPanel {
         chiffre.setVisible(true);
         chiffre.setLayout(null);
         chiffre.setBounds(0, 70, 225, 325);
-        chiffre.setBackground(Color.red);
+        chiffre.setBackground(Color.white);
         chiffre.setBorder(BorderFactory.createLineBorder(Color.black));
         add(chiffre);
 
         operateurPanel.setVisible(true);
         operateurPanel.setLayout(null);
         operateurPanel.setBounds(225, 70, 85, 325);
-        operateurPanel.setBackground(Color.green);
+        operateurPanel.setBackground(Color.white);
         operateurPanel.setBorder(BorderFactory.createLineBorder(Color.black));
         add(operateurPanel);
 
         imageFond.setVisible(true);
         imageFond.setLayout(null);
         imageFond.setBounds(0, 340, 310, 235);
+        imageFond.setBorder(BorderFactory.createLineBorder(Color.black));
         imageFond.addMouseListener(new MouseListener() {
                                        @Override
                                        public void mouseClicked(MouseEvent e) {

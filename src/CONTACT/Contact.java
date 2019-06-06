@@ -70,9 +70,9 @@ public class Contact extends JPanel implements ActionListener {
     Validator validator = new Validator();
 
     //IMAGES FOR BUTTON
-    private static ImageIcon addphoto = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\addb.jpg").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
-    private ImageIcon deleteContact = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\deleteb.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
-    private ImageIcon backContact = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\backb.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+    private  ImageIcon addphoto = new ImageIcon(new ImageIcon(getClass().getResource("/addb.jpg")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+    //private ImageIcon deleteContact = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\deleteb.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+   // private ImageIcon backContact = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\backb.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
 
 
     //DIMENSION FOR LABEL & TEXFIELD
@@ -98,31 +98,29 @@ public class Contact extends JPanel implements ActionListener {
     private static JButton deleteButton = new JButton(deleteButtonT);
     private static JButton cancelButton	= new JButton(cancelButtonT);
     private static JButton backButton = new JButton(backButtonT);
-    private static JButton addPhotoButton = new JButton(addphoto);
+    private  JButton addPhotoButton = new JButton(addphoto);
 
     //BUTTONS
     private static JButton yesButton = new JButton(yesButtonT);
     private static JButton noButton = new JButton(noButtonT);
 
     //TEXTFIELD
-    private static JTextField
-            nameTf = new JTextField(),
-            firstnameTf = new JTextField(),
-            numTf = new JTextField(),
-            emailTf = new JTextField(),
-            adressTf = new JTextField(),
-            ZIPTf = new JTextField();
+    private static JTextField nameTf = new JTextField();
+    private static JTextField firstnameTf = new JTextField();
+    private static JTextField numTf = new JTextField();
+    private static JTextField emailTf = new JTextField();
+    private static JTextField adressTf = new JTextField();
+    private static JTextField ZIPTf = new JTextField();
 
     //LABELS
-    private JLabel
-            contactLb = new JLabel(contactTitle),
-            nameLb = new JLabel(nameLabelT),
-            firstnameLb = new JLabel(firstnameLabelT),
-            numLb = new JLabel(phoneLabelT),
-            emailLb = new JLabel(emailLabelT),
-            addressLb = new JLabel(addressLabelT),
-            ZIPLb = new JLabel(zipcityLabelT),
-            addPhotoLb = new JLabel(addPhotolT);
+    private JLabel contactLb = new JLabel(contactTitle);
+    private JLabel nameLb = new JLabel(nameLabelT);
+    private JLabel firstnameLb = new JLabel(firstnameLabelT);
+    private JLabel numLb = new JLabel(phoneLabelT);
+    private JLabel emailLb = new JLabel(emailLabelT);
+    private JLabel addressLb = new JLabel(addressLabelT);
+    private JLabel ZIPLb = new JLabel(zipcityLabelT);
+    private JLabel addPhotoLb = new JLabel(addPhotolT);
 
     private static JLabel image = new JLabel();
 
@@ -347,241 +345,6 @@ public class Contact extends JPanel implements ActionListener {
 
     }
 
-    //EDIT VALUE
-    public void setEditable(boolean val){
-        nameTf.setEditable(val);
-        firstnameTf.setEditable(val);
-        numTf.setEditable(val);
-        emailTf.setEditable(val);
-        adressTf.setEditable(val);
-        ZIPTf.setEditable(val);
-    }
-
-    //BACK TO INITIAL
-    public void showDefault(){
-        addButton.setVisible(true);
-        editButton.setVisible(false);
-        deleteButton.setVisible(false);
-        updateButton.setVisible(false);
-        saveButton.setVisible(false);
-        cancelButton.setVisible(false);
-        contactL.setEnabled(true);
-    }
-
-    //SET TEXTFIELD TO NULL
-    public void setFieldsToNULL(){
-        nameTf.setText(null);
-        firstnameTf.setText(null);
-        numTf.setText(null);
-        emailTf.setText(null);
-        adressTf.setText(null);
-        ZIPTf.setText(null);
-    }
-
-    //GET DATA ON THE TXT FILE
-    public void readContact() {
-        String ligne;
-        try {
-            int buffLength = 0;
-            BufferedReader buff = new BufferedReader(new InputStreamReader(new FileInputStream(fichierContact)));
-            while ((buff.readLine()) != null) {
-                buffLength++;
-            }
-            contactArray = new String[buffLength];
-            buff.close();
-        } catch (Exception e) {
-            System.out.println(errorReadT);
-            System.out.println(e.toString());
-        }
-
-        try {
-            int buffLength = 0;
-            BufferedReader buff = new BufferedReader(new InputStreamReader(new FileInputStream(fichierContact)));
-            while ((ligne = buff.readLine()) != null) {
-                contactArray[buffLength] = ligne;
-                buffLength++;
-            }
-            buff.close();
-            updateList();
-            contactL.setEnabled(true);
-        } catch (Exception e) {
-            System.out.println(errorReadT);
-            System.out.println(e.toString());
-        }
-    }
-
-    //ADD DATA ON THE TXT FILE
-    public void writeContact(){
-        try {
-            try {
-                PrintWriter pw = new PrintWriter(fichierContact);
-                for (int i = 0; i< contactArray.length; i++){
-                    if(contactArray[i]!= null){
-                        if(!contactArray[i].contains("#delete")){
-                            pw.println(contactArray[i]);
-                        }
-                    }
-                }
-                pw.close();
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-        }catch (Exception e){
-            System.out.println(errorWriteT);
-            System.out.println(e.toString());
-        }
-    }
-
-
-    //SELECT LISTENER TO SHOW CONTACT WHEN YOU CLIC ON IT
-    class LSListener implements ListSelectionListener {
-        public void valueChanged(ListSelectionEvent evt){
-            int i = contactL.getSelectedIndex();
-            labelTfPanel.setVisible(true); // Show contact form
-            imagePanel.setVisible(true);
-            setEditable(false);
-            editButton.setVisible(true);
-            deleteButton.setVisible(true);
-            backButton.setVisible(true);
-            scrollPanePanel.setVisible(false);
-            formPanel.setVisible(true);
-            contactLb.setVisible(false);
-            addButton.setVisible(false);
-
-            if(i != -1){
-                nameTf.setText(contactData[i].getName());
-                firstnameTf.setText(contactData[i].getFirstname());
-                numTf.setText(contactData[i].getPhone());
-                emailTf.setText(contactData[i].getEmail());
-                adressTf.setText(contactData[i].getAddress());
-                ZIPTf.setText(contactData[i].getZipcity());
-            }
-        }
-    }
-
-    //DELETE QUESTION TO BE SURE YOU REALLY WANT TO DELETE THE CONTACT
-    public void deleteConfirmation() {
-
-        int reponse = JOptionPane.showConfirmDialog(this,
-                "Suppression du contact. Êtes-vous sur de vouloir le supprimer ?",
-                "Suppression",
-                JOptionPane.YES_NO_OPTION);
-
-
-        if (reponse == JOptionPane.YES_OPTION){
-            int numJList = contactL.getSelectedIndex();
-            // replacing data by deletedField tags
-            streamMod(deletedField, deletedField, deletedField, deletedField, deletedField, deletedField, numJList);
-        }
-        showDefault();
-    }
-
-    //UPDATE THE LIST OF CONTACT TO GET THE NEW ADDED
-    public void updateList(){
-        contactList = new String[contactArray.length];
-        contactData = new ContactData[contactArray.length];
-
-        String[] tempArray = new String[7];
-        try {
-            for (int i = 0; i< contactArray.length; i++){
-                if(contactArray[i]!= null){
-                    // Separating values to 6 values - used separator is - with a leading and ending space
-                    tempArray = contactArray[i].split(" - ", 6);
-                    // Creating contactData array contaning the object contactData with it's informations
-                    contactData[i] = new ContactData(tempArray[0], tempArray[1], tempArray[2], tempArray[3], tempArray[4], tempArray[5]);
-                    // Generating contactList content
-                    contactList[i] = tempArray[0] + " " + tempArray[1];
-                    if(contactArray[i].contains(deletedField)){
-                        contactList[i] = null;
-                    }
-                }
-            }
-            contactL.setListData(contactList);
-            labelTfPanel.setVisible(false);
-            imagePanel.setVisible(false);
-            backButton.setVisible(false);
-            scrollPanePanel.setVisible(true);
-            contactLb.setVisible(true);
-
-        }catch (Exception e){
-            System.out.println(errorUpdateT);
-            System.out.println(e.toString());
-        }
-    }
-
-    //CONNECTED TO VALIDATOR TO BE SURE THAT THE DATAS THE USER GIVES ARE IN CORRECT FORMS
-    //ONLY NUMBERS FOR THE PHONE AND THE EXACT NUMBER OF FIGURES
-    public boolean validPhone(String phone){
-        boolean response;
-        response = validator.validatePhone(phone);
-        return response;
-    }
-    public boolean validEmail(String mail){
-        boolean response;
-        response = validator.validateEmail(mail);
-        return response;
-    }
-
-
-
-    public void addToStream(){
-        String temp [] = new String[contactArray.length + 1];
-
-        // Creating temporary array and adding existing contact data
-        for(int i = 0; i < contactArray.length; i++){
-            temp[i] = contactArray[i];
-
-        }
-        // Appending the new contact to the last position of the temp array
-        temp[contactArray.length] = firstnameTf.getText() + " - "
-                + nameTf.getText() + " - " + emailTf.getText() + " - " + numTf.getText()
-                + " - " + adressTf.getText() + " - " + ZIPTf.getText();
-
-        // Redefining contactArray and putting temp data
-        contactArray = new String [temp.length];
-        contactArray = temp;
-
-        writeContact();
-        updateList();
-        showDefault();
-    }
-    public void streamMod(String name, String firstname, String email, String phone, String address, String zipcity, int JListContact) {
-        for(int i = 0; i< contactArray.length; i++){
-            if(contactArray[i] != null){
-                if(i == JListContact){
-                    contactArray[i] = firstname + " - " + name + " - " + email + " - " + phone + " - " + address + " - " + zipcity;
-                }
-            }
-        }
-        updateList();
-        writeContact();
-        contactL.setEnabled(true);
-        showDefault();
-    }
-
-    class AddPhoto implements ActionListener{
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-
-            formPanel.setVisible(false);
-            labelTfPanel.setVisible(false);
-            imagePanel.setVisible(false);
-            cancelButton.setVisible(false);
-            saveButton.setVisible(false);
-            fondEcran.setVisible(false);
-
-
-
-            HOMEGALLERY homegallery = new HOMEGALLERY(aide);
-            homegallery.setBounds(0,0,310,525);
-            add(homegallery);
-            setComponentZOrder(homegallery,0);
-
-
-        }
-    }
-
     class AddContact implements ActionListener{
 
         @Override
@@ -626,6 +389,33 @@ public class Contact extends JPanel implements ActionListener {
             backButton.setVisible(false);
         }
     }
+
+    //SELECT LISTENER TO SHOW CONTACT WHEN YOU CLIC ON IT
+    class LSListener implements ListSelectionListener {
+        public void valueChanged(ListSelectionEvent evt){
+            int i = contactL.getSelectedIndex();
+            labelTfPanel.setVisible(true); // Show contact form
+            imagePanel.setVisible(true);
+            setEditable(false);
+            editButton.setVisible(true);
+            deleteButton.setVisible(true);
+            backButton.setVisible(true);
+            scrollPanePanel.setVisible(false);
+            formPanel.setVisible(true);
+            contactLb.setVisible(false);
+            addButton.setVisible(false);
+
+            if(i != -1){
+                nameTf.setText(contactData[i].getName());
+                firstnameTf.setText(contactData[i].getFirstname());
+                numTf.setText(contactData[i].getPhone());
+                emailTf.setText(contactData[i].getEmail());
+                adressTf.setText(contactData[i].getAddress());
+                ZIPTf.setText(contactData[i].getZipcity());
+            }
+        }
+    }
+
     class ValidateNewContact implements ActionListener{
 
         @Override
@@ -687,6 +477,169 @@ public class Contact extends JPanel implements ActionListener {
         }
     }
 
+
+    //GET DATA ON THE TXT FILE
+    public void readContact() {
+        String ligne;
+        try {
+            int buffLength = 0;
+            BufferedReader buff = new BufferedReader(new InputStreamReader(new FileInputStream(fichierContact)));
+            while ((buff.readLine()) != null) {
+                buffLength++;
+            }
+            contactArray = new String[buffLength];
+            buff.close();
+        } catch (Exception e) {
+            System.out.println(errorReadT);
+            System.out.println(e.toString());
+        }
+
+        try {
+            int buffLength = 0;
+            BufferedReader buff = new BufferedReader(new InputStreamReader(new FileInputStream(fichierContact)));
+            while ((ligne = buff.readLine()) != null) {
+                contactArray[buffLength] = ligne;
+                buffLength++;
+            }
+            buff.close();
+            updateList();
+            contactL.setEnabled(true);
+        } catch (Exception e) {
+            System.out.println(errorReadT);
+            System.out.println(e.toString());
+        }
+    }
+
+    //ADD DATA ON THE TXT FILE
+    public void writeContact(){
+        try {
+            try {
+                PrintWriter pw = new PrintWriter(fichierContact);
+                for (int i = 0; i< contactArray.length; i++){
+                    if(contactArray[i]!= null){
+                        if(!contactArray[i].contains("#delete")){
+                            pw.println(contactArray[i]);
+                        }
+                    }
+                }
+                pw.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }catch (Exception e){
+            System.out.println(errorWriteT);
+            System.out.println(e.toString());
+        }
+    }
+
+    //DELETE QUESTION TO BE SURE YOU REALLY WANT TO DELETE THE CONTACT
+    public void deleteConfirmation() {
+
+        int reponse = JOptionPane.showConfirmDialog(this,
+                "Suppression du contact. Êtes-vous sur de vouloir le supprimer ?",
+                "Suppression",
+                JOptionPane.YES_NO_OPTION);
+
+
+        if (reponse == JOptionPane.YES_OPTION){
+            int numJList = contactL.getSelectedIndex();
+            // replacing data by deletedField tags
+            streamMod(deletedField, deletedField, deletedField, deletedField, deletedField, deletedField, numJList);
+        }
+        showDefault();
+    }
+
+    //UPDATE THE LIST OF CONTACT TO GET THE NEW ADDED
+    public void updateList(){
+        contactList = new String[contactArray.length];
+        contactData = new ContactData[contactArray.length];
+
+        String[] tempArray = new String[7];
+        try {
+            for (int i = 0; i< contactArray.length; i++){
+                if(contactArray[i]!= null){
+                    // Separating values to 6 values - used separator is - with a leading and ending space
+                    tempArray = contactArray[i].split(" - ", 6);
+                    // Creating contactData array contaning the object contactData with it's informations
+                    contactData[i] = new ContactData(tempArray[0], tempArray[1], tempArray[2], tempArray[3], tempArray[4], tempArray[5]);
+                    // Generating contactList content
+                    contactList[i] = tempArray[0] + " " + tempArray[1];
+                    if(contactArray[i].contains(deletedField)){
+                        contactList[i] = null;
+                    }
+                }
+            }
+            contactL.setListData(contactList);
+            labelTfPanel.setVisible(false);
+            imagePanel.setVisible(false);
+            backButton.setVisible(false);
+            scrollPanePanel.setVisible(true);
+            contactLb.setVisible(true);
+
+        }catch (Exception e){
+            System.out.println(errorUpdateT);
+            System.out.println(e.toString());
+        }
+    }
+
+    public void addToStream(){
+        String temp [] = new String[contactArray.length + 1];
+
+        // Creating temporary array and adding existing contact data
+        for(int i = 0; i < contactArray.length; i++){
+            temp[i] = contactArray[i];
+
+        }
+        // Appending the new contact to the last position of the temp array
+        temp[contactArray.length] = firstnameTf.getText() + " - "
+                + nameTf.getText() + " - " + emailTf.getText() + " - " + numTf.getText()
+                + " - " + adressTf.getText() + " - " + ZIPTf.getText();
+
+        // Redefining contactArray and putting temp data
+        contactArray = new String [temp.length];
+        contactArray = temp;
+
+        writeContact();
+        updateList();
+        showDefault();
+    }
+
+    public void streamMod(String name, String firstname, String email, String phone, String address, String zipcity, int JListContact) {
+        for(int i = 0; i< contactArray.length; i++){
+            if(contactArray[i] != null){
+                if(i == JListContact){
+                    contactArray[i] = firstname + " - " + name + " - " + email + " - " + phone + " - " + address + " - " + zipcity;
+                }
+            }
+        }
+        updateList();
+        writeContact();
+        contactL.setEnabled(true);
+        showDefault();
+    }
+
+    class AddPhoto implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            formPanel.setVisible(false);
+            labelTfPanel.setVisible(false);
+            imagePanel.setVisible(false);
+            cancelButton.setVisible(false);
+            saveButton.setVisible(false);
+            fondEcran.setVisible(false);
+
+
+
+            HOMEGALLERY homegallery = new HOMEGALLERY(aide);
+            homegallery.setBounds(0,0,310,525);
+            add(homegallery);
+            setComponentZOrder(homegallery,0);
+
+        }
+    }
+
     class ValidateExistingContact implements ActionListener{
 
         public void actionPerformed(ActionEvent e){
@@ -728,5 +681,49 @@ public class Contact extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent arg0) {
         // TODO Auto-generated method stub
 
+    }
+
+    //CONNECTED TO VALIDATOR TO BE SURE THAT THE DATAS THE USER GIVES ARE IN CORRECT FORMS
+    //ONLY NUMBERS FOR THE PHONE AND THE EXACT NUMBER OF FIGURES
+    public boolean validPhone(String phone){
+        boolean response;
+        response = validator.validatePhone(phone);
+        return response;
+    }
+    public boolean validEmail(String mail){
+        boolean response;
+        response = validator.validateEmail(mail);
+        return response;
+    }
+
+    //EDIT VALUE
+    public void setEditable(boolean val){
+        nameTf.setEditable(val);
+        firstnameTf.setEditable(val);
+        numTf.setEditable(val);
+        emailTf.setEditable(val);
+        adressTf.setEditable(val);
+        ZIPTf.setEditable(val);
+    }
+
+    //BACK TO INITIAL
+    public void showDefault(){
+        addButton.setVisible(true);
+        editButton.setVisible(false);
+        deleteButton.setVisible(false);
+        updateButton.setVisible(false);
+        saveButton.setVisible(false);
+        cancelButton.setVisible(false);
+        contactL.setEnabled(true);
+    }
+
+    //SET TEXTFIELD TO NULL
+    public void setFieldsToNULL(){
+        nameTf.setText(null);
+        firstnameTf.setText(null);
+        numTf.setText(null);
+        emailTf.setText(null);
+        adressTf.setText(null);
+        ZIPTf.setText(null);
     }
 }
