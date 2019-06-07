@@ -18,22 +18,34 @@ public class Contact extends JPanel implements ActionListener {
 
     /**
      *
-     * fichierContact is the file in which the list of contacts is saved
+     * fileContact is the file in which the list of contacts is saved
      *
      **/
 
     //FILE TO FIND SAVED CONTACT
-    private static String fichierContact = "C:\\\\Users\\\\mathi\\\\IdeaProjects\\\\PHONES\\\\src\\\\contact.txt";
+    private static String fileContact = "C:\\\\Users\\\\mathi\\\\IdeaProjects\\\\PHONES\\\\src\\\\contact.txt";
+
+    /**
+     * IMAGES LINKS
+     **/
+    private  ImageIcon addphoto = new ImageIcon(new ImageIcon(getClass().getResource("/addb.jpg")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+    //private ImageIcon deleteContact = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\deleteb.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+    // private ImageIcon backContact = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\backb.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
 
 
+    /**
+     * FONT ORGANIZER
+     **/
 
-    //FONT ORGANIZER
-    Font fontL = new Font("SansSerif", Font.BOLD, 16);
-    Font fontTF = new Font("SansSerif", Font.ITALIC, 16);
+    Font fontL = new Font("Arial", Font.BOLD, 16);
+    Font fontTF = new Font("Arial", Font.ITALIC, 16);
     Font fontButton = new Font("Arial", Font.BOLD, 14);
     Font title = new Font("Arial", Font.BOLD, 22);
 
-    //TEXT BUTTON
+
+    /**
+     * TEXT FOR BUTTON
+     **/
     static String contactTitle = "CONTACT";
     static String addButtonT = "+";
     static String modifyButtonT = "EDIT";
@@ -45,52 +57,10 @@ public class Contact extends JPanel implements ActionListener {
     static String yesButtonT = "YES";
     static String noButtonT = "NO";
 
+    /**
+     * BUTTON
+     **/
 
-
-    //TEXT LABEL
-    static String nameLabelT = "Nom";
-    static String firstnameLabelT = "Prenom";
-    static String phoneLabelT = "Numero de telephone";
-    static String emailLabelT = "Email";
-    static String addressLabelT = "Adresse";
-    static String zipcityLabelT = "CP / Ville";
-    static String addPhotolT = "Photo";
-
-    //ERROE MESSAGE
-    static String errorDeleteT = "Un probleme est survenu lors de la suppression.";
-    static String errorModifyT = "Une erreur est survenue lors de la modification. Veuillez corriger.";
-    static String errorWriteT = "Erreur lors de l'écriture dans le fichier.";
-    static String errorUpdateT = "Erreur lors de la modification.";
-    static String errorReadT = "Erreur de lecteur.";
-
-    //DELETED STRING
-    static String deletedField = "#valeurSupprimee";
-
-    //CONNECT TO VALIDATOR TO VALIDATE (MAIL,PHONE...)
-    Validator validator = new Validator();
-
-    //IMAGES FOR BUTTON
-    private  ImageIcon addphoto = new ImageIcon(new ImageIcon(getClass().getResource("/addb.jpg")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
-    //private ImageIcon deleteContact = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\deleteb.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
-   // private ImageIcon backContact = new ImageIcon(new ImageIcon("C:\\Users\\mathi\\OneDrive\\Documents\\HES\\S2\\POO\\ProjetPhones\\Images\\backb.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
-
-
-    //DIMENSION FOR LABEL & TEXFIELD
-    private Dimension dimension = new Dimension(480, 30);
-
-    //PANELS
-    private JPanel scrollPanePanel = new JPanel();
-    private JPanel buttonPanel = new JPanel();
-    private static JPanel labelTfPanel = new JPanel();
-    private static JPanel imagePanel = new JPanel();
-    private JPanel formPanel = new JPanel();
-    private static JPanel fondEcran = new JPanel();
-    private JPanel suppMessage = new JPanel();
-
-    //LIST
-    protected static JList contactL = new JList(); //List which contains the data
-
-    //BUTTONS
     private static JButton addButton = new JButton(addButtonT);
     private static JButton editButton	= new JButton(modifyButtonT);
     private static JButton saveButton = new JButton(saveButtonT);
@@ -100,19 +70,30 @@ public class Contact extends JPanel implements ActionListener {
     private static JButton backButton = new JButton(backButtonT);
     private  JButton addPhotoButton = new JButton(addphoto);
 
-    //BUTTONS
+    /**
+     * BUTTON TEST NEVER USED
+     **/
+
     private static JButton yesButton = new JButton(yesButtonT);
     private static JButton noButton = new JButton(noButtonT);
 
-    //TEXTFIELD
-    private static JTextField nameTf = new JTextField();
-    private static JTextField firstnameTf = new JTextField();
-    private static JTextField numTf = new JTextField();
-    private static JTextField emailTf = new JTextField();
-    private static JTextField adressTf = new JTextField();
-    private static JTextField ZIPTf = new JTextField();
 
-    //LABELS
+
+    /**
+     * TEXT LABEL
+     **/
+
+    static String nameLabelT = "Nom";
+    static String firstnameLabelT = "Prenom";
+    static String phoneLabelT = "Numero de telephone";
+    static String emailLabelT = "Email";
+    static String addressLabelT = "Adresse";
+    static String zipcityLabelT = "CP / Ville";
+    static String addPhotolT = "Photo";
+
+    /**
+     * LABELS
+     **/
     private JLabel contactLb = new JLabel(contactTitle);
     private JLabel nameLb = new JLabel(nameLabelT);
     private JLabel firstnameLb = new JLabel(firstnameLabelT);
@@ -125,11 +106,72 @@ public class Contact extends JPanel implements ActionListener {
     private static JLabel image = new JLabel();
 
 
-    //TABS
+
+    /**
+     * ERROR MESSAGES
+     **/
+    static String errorDeleteT = "Un probleme est survenu lors de la suppression.";
+    static String errorModifyT = "Une erreur est survenue lors de la modification. Veuillez corriger.";
+    static String errorWriteT = "Erreur lors de l'écriture dans le fichier.";
+    static String errorUpdateT = "Erreur lors de la modification.";
+    static String errorReadT = "Erreur de lecteur.";
+
+    /**
+     * STRING WHEN YOU DELETE A CONTACT
+     **/
+    static String deletedField = "#valeurSupprimee";
+
+
+    /**
+     * ADD VALIDATOR TO USE THE METHODES VALIDATE
+     **/
+    Validator validator = new Validator();
+
+
+
+    /**
+     * DIMENSION FOR LABEL & TEXTFIELD
+     **/
+    private Dimension dimension = new Dimension(480, 30);
+
+    /**
+     * PANELS
+     **/
+    private JPanel scrollPanePanel = new JPanel();
+    private JPanel buttonPanel = new JPanel();
+    private static JPanel labelTfPanel = new JPanel();
+    private static JPanel imagePanel = new JPanel();
+    private JPanel formPanel = new JPanel();
+    private static JPanel fondEcran = new JPanel();
+    private JPanel suppMessage = new JPanel();
+
+    /**
+     * LIST
+     **/
+    protected static JList contactL = new JList(); //List which contains the data
+
+
+    /**
+     * TEXTFIELD
+     **/
+    private static JTextField nameTf = new JTextField();
+    private static JTextField firstnameTf = new JTextField();
+    private static JTextField numTf = new JTextField();
+    private static JTextField emailTf = new JTextField();
+    private static JTextField adressTf = new JTextField();
+    private static JTextField ZIPTf = new JTextField();
+
+
+    /**
+     * TABS
+     **/
     private static String[] contactList;
     private static String[] contactArray;
     private static ContactData[] contactData;
 
+    /**
+     * IMPLEMENTS OTHERS CLASSES
+     **/
     private HOMEGALLERY homegallery;
     private Contact contact;
 
@@ -137,14 +179,16 @@ public class Contact extends JPanel implements ActionListener {
 
         this.contact = this;
 
-        //SCROLLPANE TO SCROLL ON CONTACT LIST
+        /**
+         * SCROLL BAR
+         **/
         JScrollPane scrollPane = new JScrollPane(contactL);
 
 
         scrollPanePanel.setLayout(new BorderLayout());
         formPanel.setLayout(new BorderLayout());
 
-        //ADD SCROOLPANE
+
         scrollPanePanel.add(scrollPane,BorderLayout.CENTER);
 
 
@@ -166,7 +210,9 @@ public class Contact extends JPanel implements ActionListener {
 
         image.setIcon(addphoto);
 
-        //LABEL OF TEXTFIELD
+        /**
+         * LABELS OF TEXTFIELDS
+         **/
         labelTfPanel.setLayout(new GridLayout(18, 1));
         labelTfPanel.add(nameLb);
         labelTfPanel.add(nameTf);
@@ -187,15 +233,21 @@ public class Contact extends JPanel implements ActionListener {
 
 
 
-        //ADDINGS PANNEL
+        /**
+         * ADDING PANNELS
+         **/
         add(scrollPanePanel,BorderLayout.NORTH); //CONTACT LIST
         add(formPanel,BorderLayout.SOUTH); //CONTACT WITH DATA
 
-        //HIDE TEXTFIELD LABEL
+        /**
+         * HIDE TEXTFIELD LABEL
+         **/
         labelTfPanel.setVisible(false);
         imagePanel.setVisible(false);
 
-        //HIDE BUTTON
+        /**
+         * HIDE BUTTONS
+         **/
         editButton.setVisible(false);
         saveButton.setVisible(false);
         cancelButton.setVisible(false);
@@ -204,7 +256,9 @@ public class Contact extends JPanel implements ActionListener {
         backButton.setVisible(false);
         addPhotoButton.setVisible(false);
 
-        //ACTION LISTENER
+        /**
+         * ACTION LISTENER FOR THE BUTTONS
+         **/
         addButton.addActionListener(new AddContact());
         editButton.addActionListener(new EditContact());
         saveButton.addActionListener(new ValidateNewContact());
@@ -216,19 +270,29 @@ public class Contact extends JPanel implements ActionListener {
         //yesButton.addActionListener(new YesSup());
         //noButton.addActionListener(new NoSup());
 
-        //SELECT LISTENER TO SHOW CONTACT WHEN YOU CLIC ON IT
+
+
+        /**
+         * SELECT LISTENER TO SHOW CONTACT WHEN YOU CLIC ON IT
+         **/
         contactL.addListSelectionListener(new LSListener());
 
-        //SET SIZE OF DIFFERENT PANEL
+
+
+        /**
+         * SET SIZE OF DIFFERENT PANEL
+         **/
         this.setLayout(null);
         this.scrollPanePanel.setBounds(0, 100, 310, 350); //SIZE OF CONTACT LIST
         this.formPanel.setBounds(0, 50, 310, 430); // SIZE OF CONTACT'S DATA
 
 
-
-
         contactStyle();
     }
+
+    /**
+     * POSTIONING AND STYLING THE APP CONTACT TO HAVE THE LIST, BUTTONS... HOW WE WANT
+     **/
 
     public void contactStyle(){
 
@@ -345,6 +409,10 @@ public class Contact extends JPanel implements ActionListener {
 
     }
 
+    /**
+     * WHAT HAPPEN WHEN YOU CLIC ON ADD CONTACT
+     * SHOW AND HIDE DIFFERENT PANELS AND BUTTONS
+     **/
     class AddContact implements ActionListener{
 
         @Override
@@ -367,6 +435,11 @@ public class Contact extends JPanel implements ActionListener {
             setEditable(true);
         }
     }
+
+    /**
+     * WHAT HAPPEN WHEN YOU CLIC ON EDIT CONTACT
+     * SHOW AND HIDE DIFFERENT PANELS AND BUTTONS
+     **/
     class EditContact implements ActionListener{
 
         @Override
@@ -390,7 +463,11 @@ public class Contact extends JPanel implements ActionListener {
         }
     }
 
-    //SELECT LISTENER TO SHOW CONTACT WHEN YOU CLIC ON IT
+
+    /**
+     * SELECT LISTENER TO SHOW CONTACT WHEN YOU CLIC ON IT
+     * SHOW AND HIDE DIFFERENT PANELS AND BUTTONS
+     **/
     class LSListener implements ListSelectionListener {
         public void valueChanged(ListSelectionEvent evt){
             int i = contactL.getSelectedIndex();
@@ -416,6 +493,10 @@ public class Contact extends JPanel implements ActionListener {
         }
     }
 
+    /**
+     * CONTROL IF THE INFOS THE USER WRITE ARE IN A CORRECT FORM AND IF NOT, SHOW HIM WITH PUTTING IN RED HIS TEXT
+     **/
+
     class ValidateNewContact implements ActionListener{
 
         @Override
@@ -437,13 +518,18 @@ public class Contact extends JPanel implements ActionListener {
             }
         }
     }
+
+    /**
+     * WHAT HAPPEN WHEN YOU CLIC ON THE BUTTON CONTACT
+     * SHOW AND HIDE DIFFERENT PANELS AND BUTTONS
+     **/
     class CancelContact implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                contactL.clearSelection(); // Clearing the contactLF
-                labelTfPanel.setVisible(false); // Hiding labelTfPanel
+                contactL.clearSelection();
+                labelTfPanel.setVisible(false);
                 imagePanel.setVisible(false);
                 scrollPanePanel.setVisible(true);
                 backButton.setVisible(false);
@@ -457,6 +543,11 @@ public class Contact extends JPanel implements ActionListener {
         }
     }
 
+    /**
+     * WHAT HAPPEN WHEN YOU CLIC ON BACK BUTTON
+     * RETURN TO THE PREVIEWS PANEL
+     * SHOW AND HIDE DIFFERENT PANELS AND BUTTONS
+     **/
     class BackContact implements ActionListener{
 
         @Override
@@ -478,12 +569,14 @@ public class Contact extends JPanel implements ActionListener {
     }
 
 
-    //GET DATA ON THE TXT FILE
+    /**
+     * READ THE DATA ON THE TXT FILE
+     **/
     public void readContact() {
         String ligne;
         try {
             int buffLength = 0;
-            BufferedReader buff = new BufferedReader(new InputStreamReader(new FileInputStream(fichierContact)));
+            BufferedReader buff = new BufferedReader(new InputStreamReader(new FileInputStream(fileContact)));
             while ((buff.readLine()) != null) {
                 buffLength++;
             }
@@ -496,7 +589,7 @@ public class Contact extends JPanel implements ActionListener {
 
         try {
             int buffLength = 0;
-            BufferedReader buff = new BufferedReader(new InputStreamReader(new FileInputStream(fichierContact)));
+            BufferedReader buff = new BufferedReader(new InputStreamReader(new FileInputStream(fileContact)));
             while ((ligne = buff.readLine()) != null) {
                 contactArray[buffLength] = ligne;
                 buffLength++;
@@ -510,11 +603,13 @@ public class Contact extends JPanel implements ActionListener {
         }
     }
 
-    //ADD DATA ON THE TXT FILE
+    /**
+     *  ADD DATA ON THE TXT FILE
+     */
     public void writeContact(){
         try {
             try {
-                PrintWriter pw = new PrintWriter(fichierContact);
+                PrintWriter pw = new PrintWriter(fileContact);
                 for (int i = 0; i< contactArray.length; i++){
                     if(contactArray[i]!= null){
                         if(!contactArray[i].contains("#delete")){
@@ -532,7 +627,9 @@ public class Contact extends JPanel implements ActionListener {
         }
     }
 
-    //DELETE QUESTION TO BE SURE YOU REALLY WANT TO DELETE THE CONTACT
+    /**
+     *  DELETE QUESTION TO BE SURE YOU REALLY WANT TO DELETE THE CONTACT
+     */
     public void deleteConfirmation() {
 
         int reponse = JOptionPane.showConfirmDialog(this,
@@ -544,12 +641,14 @@ public class Contact extends JPanel implements ActionListener {
         if (reponse == JOptionPane.YES_OPTION){
             int numJList = contactL.getSelectedIndex();
             // replacing data by deletedField tags
-            streamMod(deletedField, deletedField, deletedField, deletedField, deletedField, deletedField, numJList);
+            stream(deletedField, deletedField, deletedField, deletedField, deletedField, deletedField, numJList);
         }
         showDefault();
     }
 
-    //UPDATE THE LIST OF CONTACT TO GET THE NEW ADDED
+    /**
+     *  UPDATE THE LIST OF CONTACT TO GET THE NEW ADDED
+     */
     public void updateList(){
         contactList = new String[contactArray.length];
         contactData = new ContactData[contactArray.length];
@@ -582,20 +681,25 @@ public class Contact extends JPanel implements ActionListener {
         }
     }
 
+
+    /**
+     * CREATING A TEMPORARY ARRAY AND ADDING EXISTING CONTACT
+     * ADD THE NEW CONTACT AT THE END OF THE TEMP ARRAY
+     * CALL THE METHOD WRITE CONTACT, UPDATE LIST AND SHOW DEFAULT
+     **/
     public void addToStream(){
         String temp [] = new String[contactArray.length + 1];
 
-        // Creating temporary array and adding existing contact data
+
         for(int i = 0; i < contactArray.length; i++){
             temp[i] = contactArray[i];
-
         }
-        // Appending the new contact to the last position of the temp array
+
         temp[contactArray.length] = firstnameTf.getText() + " - "
                 + nameTf.getText() + " - " + emailTf.getText() + " - " + numTf.getText()
                 + " - " + adressTf.getText() + " - " + ZIPTf.getText();
 
-        // Redefining contactArray and putting temp data
+
         contactArray = new String [temp.length];
         contactArray = temp;
 
@@ -604,7 +708,12 @@ public class Contact extends JPanel implements ActionListener {
         showDefault();
     }
 
-    public void streamMod(String name, String firstname, String email, String phone, String address, String zipcity, int JListContact) {
+    /**
+     * ADDING LINES TO THE CONTACT ARRAY WITH NEW CONTACT DATA
+     * ALL THE METHOD WRITE CONTACT, UPDATE LIST AND SHOW DEFAULT
+     **/
+
+    public void stream(String name, String firstname, String email, String phone, String address, String zipcity, int JListContact) {
         for(int i = 0; i< contactArray.length; i++){
             if(contactArray[i] != null){
                 if(i == JListContact){
@@ -618,6 +727,10 @@ public class Contact extends JPanel implements ActionListener {
         showDefault();
     }
 
+    /**
+     * SHOW PHOTO GALLERY WHEN YOU CLIC ON THE + PHOTO TO ADD A PHOTO FOR A CONTACT
+     *
+     **/
     class AddPhoto implements ActionListener{
 
         @Override
@@ -640,6 +753,9 @@ public class Contact extends JPanel implements ActionListener {
         }
     }
 
+    /**
+     * CHECK IF A CONTACT ALREADY EXIST
+     **/
     class ValidateExistingContact implements ActionListener{
 
         public void actionPerformed(ActionEvent e){
@@ -651,7 +767,7 @@ public class Contact extends JPanel implements ActionListener {
                     if(validPhone(numTf.getText())) {
                         numTf.setForeground(Color.BLACK);
                         // Getting form field values and writing data to the stream
-                        streamMod(nameTf.getText(), firstnameTf.getText(),
+                        stream(nameTf.getText(), firstnameTf.getText(),
                                 emailTf.getText(), numTf.getText(), adressTf.getText(),
                                 ZIPTf.getText(), numJList);
                     } else {
@@ -667,6 +783,12 @@ public class Contact extends JPanel implements ActionListener {
             }
         }
     }
+
+    /**
+     * WHAT HAPPEN WHEN YOU CLIC ON THE DELETEB BOUTONS BUTTON
+     * GET THE METHOD DELETE CONFIRMATION
+     * AND THEN WHEN THE USER REALLY WANT TO DELETE A CONTACT IT GET BACK TO CONTACT MENU
+     **/
     class DeleteContact implements ActionListener{
 
         @Override
@@ -683,8 +805,11 @@ public class Contact extends JPanel implements ActionListener {
 
     }
 
-    //CONNECTED TO VALIDATOR TO BE SURE THAT THE DATAS THE USER GIVES ARE IN CORRECT FORMS
-    //ONLY NUMBERS FOR THE PHONE AND THE EXACT NUMBER OF FIGURES
+
+    /**
+     * CONNECTED TO VALIDATOR TO BE SURE THAT THE DATAS THE USER GIVES ARE IN CORRECT FORMS
+     * ONLY NUMBERS FOR THE PHONE AND THE EXACT NUMBER OF FIGURES
+     **/
     public boolean validPhone(String phone){
         boolean response;
         response = validator.validatePhone(phone);
@@ -696,7 +821,9 @@ public class Contact extends JPanel implements ActionListener {
         return response;
     }
 
-    //EDIT VALUE
+    /**
+     * EDIT VALUES
+     **/
     public void setEditable(boolean val){
         nameTf.setEditable(val);
         firstnameTf.setEditable(val);
@@ -706,7 +833,9 @@ public class Contact extends JPanel implements ActionListener {
         ZIPTf.setEditable(val);
     }
 
-    //BACK TO INITIAL
+    /**
+     *BACK TO INITIALS BUTTONS
+     **/
     public void showDefault(){
         addButton.setVisible(true);
         editButton.setVisible(false);
@@ -717,7 +846,9 @@ public class Contact extends JPanel implements ActionListener {
         contactL.setEnabled(true);
     }
 
-    //SET TEXTFIELD TO NULL
+    /**
+     *SET TEXTFIELD TO NULL
+     **/
     public void setFieldsToNULL(){
         nameTf.setText(null);
         firstnameTf.setText(null);

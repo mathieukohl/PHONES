@@ -23,7 +23,7 @@ public class HOME_SCREEN extends JPanel {
     private ImageIcon contactButton = new ImageIcon(new ImageIcon(getClass().getResource("/Contacts.png")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
     private ImageIcon calculateButton = new ImageIcon(new ImageIcon(getClass().getResource("/calculatrice.png")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
     private ImageIcon wallpaper = new ImageIcon(new ImageIcon(getClass().getResource("/Wallpaper.jpeg")).getImage().getScaledInstance(310, 525, Image.SCALE_DEFAULT));
-    private ImageIcon eteindre = new ImageIcon(new ImageIcon(getClass().getResource("/eteindre.png")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+    private ImageIcon eteindre = new ImageIcon(new ImageIcon(getClass().getResource("/boutonEteindre.jpeg")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
 
 
     //LABEL
@@ -115,11 +115,10 @@ public class HOME_SCREEN extends JPanel {
         buttonEteindre.setFocusPainted(false);
         buttonEteindre.setBorderPainted(false);
         buttonEteindre.setContentAreaFilled(false);
-        buttonEteindre.setBounds(190, 10, 50, 50);
+        buttonEteindre.setBounds(248, 460, 50, 50);
         buttonEteindre.setVisible(true);
         buttonEteindre.addActionListener(new ButtonListenerEteindre());
         fondEcran.add(buttonEteindre);
-
     }
 
     public class ButtonListenerContact implements ActionListener{

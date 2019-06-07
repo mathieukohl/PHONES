@@ -25,7 +25,7 @@ public class PHONE extends JFrame {
     //IMAGES
     private ImageIcon homeButton = new ImageIcon(new ImageIcon(getClass().getResource("/homebutton.jpeg")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
     private ImageIcon contactButton = new ImageIcon(new ImageIcon(getClass().getResource("/Contacts.png")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
-    private ImageIcon eteindre = new ImageIcon(new ImageIcon(getClass().getResource("/eteindre.png")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+    private ImageIcon eteindre = new ImageIcon(new ImageIcon(getClass().getResource("/boutonEteindre.jpeg")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
     private ImageIcon calculateButton = new ImageIcon(new ImageIcon(getClass().getResource("/calculatrice.png")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
     private ImageIcon galleryButton = new ImageIcon(new ImageIcon(getClass().getResource("/gallery.jpg")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
     private ImageIcon wallpaper = new ImageIcon(new ImageIcon(getClass().getResource("/Wallpaper.jpeg")).getImage().getScaledInstance(310, 525, Image.SCALE_DEFAULT));
