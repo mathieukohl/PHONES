@@ -12,9 +12,8 @@ public class Validator {
 
     /**
      *
-     * Method used to validate email address
-     * Checking if there is text before and after the @ sign
-     * Between two and four chars after the separating sign .
+     * METHOD TO VALIDATE THE EMAIL
+     * IT CHECK IF YOU HAVE A TEXT THEN THE @ SIGN AND THEN TEXT AGAIN
      * @param email
      * @return boolean
      *
@@ -28,8 +27,8 @@ public class Validator {
 
     /**
      *
-     * Method used to validate phone number
-     * Checking if there are 10 chars
+     * METHOD TO VALIDATE THE PHONE NUMBER
+     * YOU NEED TO WRTIE EXACTLY 10 NUMBERS
      * @param phone
      * @return boolean
      *

@@ -7,7 +7,10 @@ import java.io.Serializable;
 public class ContactData implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    // Initialisation des variables en private
+
+    /**
+     * INITIALISATION
+     */
     private String firstname;
     private String name;
     private String email;
@@ -16,11 +19,6 @@ public class ContactData implements Serializable {
     private String zipcity;
    // private ImageIcon image;
 
-    /**
-     *
-     * Default constructor to pass empty values if nothing is passed with it
-     *
-     */
 
     public ContactData(){
         firstname = "";
@@ -29,19 +27,10 @@ public class ContactData implements Serializable {
         phone = "";
         address = "";
         zipcity = "";
-
-
     }
 
     /**
-     *
-     * Overloading default constructor with values for the contact
-     * @param firstname String firstname to add
-     * @param name String name to add
-     * @param email String email to add
-     * @param phone String phone to add
-     * @param address String address to add
-     *
+     * STRING OF DATA TO ADD TO NEW CONTACT
      */
 
     public ContactData(String firstname, String name, String email, String phone, String address, String zipcity) {
@@ -60,8 +49,8 @@ public class ContactData implements Serializable {
 
     /**
      *
-     * Getter for name
-     * @return value of name
+     * GETTER FOR NAME
+     * @return VALUE OF NAME
      *
      */
 
@@ -71,8 +60,8 @@ public class ContactData implements Serializable {
 
     /**
      *
-     * Setter for name
-     * @return value of name to set / overwrite
+     * SETTER FOR NAME
+     * @return VALUE OF NAME
      *
      */
 
@@ -82,10 +71,11 @@ public class ContactData implements Serializable {
 
     /**
      *
-     * Getter for firstname
-     * @return value of firstname
+     * GETTER FOR FIRST NAME
+     * @return VALUE OF FIRST NAME
      *
      */
+
 
     public String getFirstname() {
         return firstname;
@@ -93,8 +83,8 @@ public class ContactData implements Serializable {
 
     /**
      *
-     * Setter for firstname
-     * @return value of firstname to set / overwrite
+     * SETTER FOR FIRST NAME
+     * @return VALUE OF FIRST NAME
      *
      */
 
@@ -104,10 +94,11 @@ public class ContactData implements Serializable {
 
     /**
      *
-     * Getter for email address
-     * @return value of email address
+     * GETTER FOR EMAIL
+     * @return VALUE OF EMAIL
      *
      */
+
 
     public String getEmail() {
         return email;
@@ -115,8 +106,8 @@ public class ContactData implements Serializable {
 
     /**
      *
-     * Setter for email address
-     * @return value of email address to set / overwrite
+     * SETTER FOR EMAIL
+     * @return VALUE OF EMAIL
      *
      */
 
@@ -126,10 +117,11 @@ public class ContactData implements Serializable {
 
     /**
      *
-     * Getter for phone number
-     * @return value of phone number
+     * GETTER FOR PHONE NUMBER
+     * @return VALUE OF PHONE NUMBER
      *
      */
+
 
     public String getPhone() {
         return phone;
@@ -137,8 +129,8 @@ public class ContactData implements Serializable {
 
     /**
      *
-     * Setter for phone number
-     * @return value of phone number to set / overwrite
+     * SETTER FOR PHONE NUMBER
+     * @return VALUE OF PHONE NUMBER
      *
      */
 
@@ -148,10 +140,11 @@ public class ContactData implements Serializable {
 
     /**
      *
-     * Getter for address
-     * @return value of address
+     * GETTER FOR ADDRESS
+     * @return VALUE OF ADDRESS
      *
      */
+
 
     public String getAddress() {
         return address;
@@ -159,8 +152,8 @@ public class ContactData implements Serializable {
 
     /**
      *
-     * Setter for address
-     * @return value of address to set / overwrite
+     * SETTER FOR ADDRESS
+     * @return VALUE OF ADDRESS
      *
      */
 
@@ -170,10 +163,11 @@ public class ContactData implements Serializable {
 
     /**
      *
-     * Getter for zip code & city
-     * @return value of zip code & city
+     * GETTER FOR ZIP AND CITY
+     * @return VALUE OF ZIP AND CITY
      *
      */
+
 
     public String getZipcity() {
         return zipcity;
@@ -181,8 +175,8 @@ public class ContactData implements Serializable {
 
     /**
      *
-     * Setter for zip code & city
-     * @return value of zip code & city to set / overwrite
+     * SETTER FOR ZIP AND CITY
+     * @return VALUE OF ZIP AND CITY
      *
      */
 
