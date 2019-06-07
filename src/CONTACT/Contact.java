@@ -175,7 +175,7 @@ public class Contact extends JPanel implements ActionListener {
     private HOMEGALLERY homegallery;
     private Contact contact;
 
-    public Contact() {
+    public Contact(String s) {
 
         this.contact = this;
 

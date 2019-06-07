@@ -24,7 +24,7 @@ public class HOMEGALLERY extends JPanel {
     private JLabel labelZoomBouton = new JLabel();
 
     //File path = new File("C:\\Users\\mathi\\IdeaProjects\\PHONES\\ALBUM");
-    File path = new File(".\\ALBUM");
+    File path = new File(getClass().getClassLoader().getResource("ALBUM").getFile());
 
     //File path = new File(String.valueOf(getClass().getResource("\\ALBUM")));
 
@@ -266,7 +266,7 @@ public class HOMEGALLERY extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             setVisible(false);
-            Contact contact = new Contact();
+            Contact contact = new Contact("0788300196");
             contact.setBounds(0,0,310,525);
             add(contact);
 /*

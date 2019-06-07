@@ -8,11 +8,12 @@ import CONTACT.Contact;
 import GALLERY.HOMEGALLERY;
 
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.InputStream;
 import javax.swing.JButton;
 
 public class PHONE extends JFrame {
@@ -23,6 +24,7 @@ public class PHONE extends JFrame {
     private JPanel footer = new JPanel();
 
     //IMAGES
+    //private ImageIcon homeButton;
     private ImageIcon homeButton = new ImageIcon(new ImageIcon(getClass().getResource("/homebutton.jpeg")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
     private ImageIcon contactButton = new ImageIcon(new ImageIcon(getClass().getResource("/Contacts.png")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
     private ImageIcon eteindre = new ImageIcon(new ImageIcon(getClass().getResource("/boutonEteindre.jpeg")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
@@ -46,7 +48,7 @@ public class PHONE extends JFrame {
 
     //IMPLEMENTATION
     private CALCULATRICE_APP calculatrice_app = new CALCULATRICE_APP();
-    private Contact contact = new Contact();
+    private Contact contact = new Contact("0788300196");
     private HOMEGALLERY homegallery = new HOMEGALLERY();
 
     HOME_SCREEN home_screen = new HOME_SCREEN(this,contact,calculatrice_app,homegallery, fondEcran, buttonC, buttonG, buttonCalculatrice, buttonEteindre);
@@ -59,6 +61,16 @@ public class PHONE extends JFrame {
 
 
     public PHONE(){
+
+        ClassLoader cl = this.getClass().getClassLoader();
+        InputStream is = cl.getResourceAsStream("resources/homebutton.jpeg");
+        try {
+            Image img = ImageIO.read(is);
+            //homeButton = new ImageIcon(img).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+        } catch (Exception e) {
+            System.out.println("ERROR");
+        }
+
 
 
 
