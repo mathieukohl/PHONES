@@ -8,12 +8,10 @@ import CONTACT.Contact;
 import GALLERY.HOMEGALLERY;
 
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.InputStream;
 import javax.swing.JButton;
 
 public class PHONE extends JFrame {
@@ -24,15 +22,14 @@ public class PHONE extends JFrame {
     private JPanel footer = new JPanel();
 
     //IMAGES
-    //private ImageIcon homeButton;
-    private ImageIcon homeButton = new ImageIcon(new ImageIcon(getClass().getResource("/homebutton.jpeg")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+
+    private ImageIcon homeButton = new ImageIcon(new ImageIcon(getClass().getResource("/homeButton.jpg")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+    private ImageIcon iphone = (new ImageIcon(getClass().getResource("/iPhone3.jpeg")));
+    private ImageIcon wallpaper = new ImageIcon(new ImageIcon(getClass().getResource("/Wallpaper.jpeg")).getImage().getScaledInstance(310, 525, Image.SCALE_DEFAULT));
     private ImageIcon contactButton = new ImageIcon(new ImageIcon(getClass().getResource("/Contacts.png")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
     private ImageIcon eteindre = new ImageIcon(new ImageIcon(getClass().getResource("/boutonEteindre.jpeg")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
     private ImageIcon calculateButton = new ImageIcon(new ImageIcon(getClass().getResource("/calculatrice.png")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
-    private ImageIcon galleryButton = new ImageIcon(new ImageIcon(getClass().getResource("/gallery.jpg")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
-    private ImageIcon wallpaper = new ImageIcon(new ImageIcon(getClass().getResource("/Wallpaper.jpeg")).getImage().getScaledInstance(310, 525, Image.SCALE_DEFAULT));
-    private ImageIcon iphone = new ImageIcon(getClass().getResource("/iphone3.jpeg"));
-
+    private ImageIcon galleryButton = new ImageIcon(new ImageIcon(getClass().getResource("/gallery.png")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
 
     //BUTTON
     private JButton buttonH = new JButton(homeButton);
@@ -48,7 +45,7 @@ public class PHONE extends JFrame {
 
     //IMPLEMENTATION
     private CALCULATRICE_APP calculatrice_app = new CALCULATRICE_APP();
-    private Contact contact = new Contact("0788300196");
+    private Contact contact = new Contact("");
     private HOMEGALLERY homegallery = new HOMEGALLERY();
 
     HOME_SCREEN home_screen = new HOME_SCREEN(this,contact,calculatrice_app,homegallery, fondEcran, buttonC, buttonG, buttonCalculatrice, buttonEteindre);
@@ -58,31 +55,21 @@ public class PHONE extends JFrame {
 
 
 
-
-
     public PHONE(){
 
-        ClassLoader cl = this.getClass().getClassLoader();
-        InputStream is = cl.getResourceAsStream("resources/homebutton.jpeg");
-        try {
-            Image img = ImageIO.read(is);
-            //homeButton = new ImageIcon(img).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT);
-        } catch (Exception e) {
-            System.out.println("ERROR");
-        }
 
 
-
-
-        //a mettre partout
+        /**
+         * Mise en forme de la frame
+         */
         setUndecorated(true);
         setBackground(new Color(0,0,0,0));
-
-
         setLayout(null);
         setBounds(86, 120, 310, 520);
-       // setBackground(Color.white);
 
+        /**
+         * Ajout du JPanel en haut de l'écran qui accueillera l'heure du téléphone
+         */
         header.setBackground(Color.black);
         header.setBounds(86,89,310,30);
         header.setVisible(true);
@@ -91,6 +78,9 @@ public class PHONE extends JFrame {
         add(header);
 
 
+        /**
+         * Mise en place du JPanel en bas de l'écran qui accueillera le boutonHome
+         */
         footer.setBackground(Color.white);
         footer.setBounds(86,650,310,55);
         footer.setVisible(true);
@@ -98,7 +88,9 @@ public class PHONE extends JFrame {
         add(footer);
 
 
-        //Ajout du bouton Home avec image
+        /**
+         * Ajout du bouton Home qui permettra de revenir sur l'écran principal (HOMESCREEN)
+         */
         buttonH.setMargin(new Insets(0, 0, 0, 0));
         buttonH.setBorder(null);
         buttonH.setBounds(132,5,50,50);
@@ -107,6 +99,9 @@ public class PHONE extends JFrame {
         buttonH.addActionListener(new ButtonListenerHome());
         footer.add(buttonH);
 
+        /**
+         * Ajout des application en setVisible pour qu'elles n'apparaissent que lorsqu'on clique dessus
+         */
         add(homegallery);
         homegallery.setVisible(false);
 
@@ -116,25 +111,26 @@ public class PHONE extends JFrame {
         add(calculatrice_app);
         calculatrice_app.setVisible(false);
 
-
+        /**
+         * Ajout de l'écran principal
+         */
         add(home_screen);
 
+        /**
+         * Mise en forme de la frame
+         */
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-
         setSize(480,800);
-
-        //Pas de layout, on utilisera setBounds
-        setLayout(null);
-
-        //Enlever la fenêtre
-        //setUndecorated(true);
-
         setLocationRelativeTo(null);
 
-        //Impossible d'ajuster la taille de la fenêtre
+        /**
+         * Impossible d'ajuster la taille de la fenêtre
+         */
         setResizable(false);
 
-        // Ajout de l'image de l'iPhone qui va servir de fenêtre
+        /** Ajout du JPanel principal qui accueillera toute la frame
+         *
+         */
         main.add(frameIphone);
         main.setSize(480,800);
         main.setVisible(true);
@@ -143,6 +139,9 @@ public class PHONE extends JFrame {
 
     }
 
+    /**
+     * ActionListener permettant de revenir sur l'écran principal (HOMESCREEN)
+     */
     public class ButtonListenerHome implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {

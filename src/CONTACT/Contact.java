@@ -13,7 +13,7 @@ import java.io.*;
 
 public class Contact extends JPanel implements ActionListener {
 
-    int aide =1;
+
 
 
     /**
@@ -102,6 +102,7 @@ public class Contact extends JPanel implements ActionListener {
     private JLabel addressLb = new JLabel(addressLabelT);
     private JLabel ZIPLb = new JLabel(zipcityLabelT);
     private JLabel addPhotoLb = new JLabel(addPhotolT);
+    private JLabel picture = new JLabel();
 
     private static JLabel image = new JLabel();
 
@@ -293,6 +294,15 @@ public class Contact extends JPanel implements ActionListener {
     /**
      * POSTIONING AND STYLING THE APP CONTACT TO HAVE THE LIST, BUTTONS... HOW WE WANT
      **/
+
+    public JLabel getPicture() {
+        System.out.println(picture.getText());
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture.setText(picture);
+    }
 
     public void contactStyle(){
 
@@ -736,19 +746,19 @@ public class Contact extends JPanel implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
 
+
             formPanel.setVisible(false);
             labelTfPanel.setVisible(false);
-            imagePanel.setVisible(false);
             cancelButton.setVisible(false);
             saveButton.setVisible(false);
             fondEcran.setVisible(false);
 
 
-
-            HOMEGALLERY homegallery = new HOMEGALLERY(aide);
+            HOMEGALLERY homegallery = new HOMEGALLERY(contact);
             homegallery.setBounds(0,0,310,525);
             add(homegallery);
             setComponentZOrder(homegallery,0);
+
 
         }
     }

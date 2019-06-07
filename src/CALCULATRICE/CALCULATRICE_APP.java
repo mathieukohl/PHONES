@@ -7,6 +7,11 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.*;
 
+/**
+ * Classe permettant de reprendre l'heure de l'ordinateur et l'ajouter au téléphone
+ * @param //type
+ */
+
 public class CALCULATRICE_APP extends JPanel {
 
     private JPanel container = new JPanel();
@@ -26,7 +31,7 @@ public class CALCULATRICE_APP extends JPanel {
     private JPanel operateurPanel = new JPanel();
     private JPanel chiffre = new JPanel();
 
-    private ImageIcon image = new ImageIcon(new ImageIcon(getClass().getResource("/crop.jpg")).getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+    private ImageIcon image = new ImageIcon(new ImageIcon(getClass().getResource("/calcul.jpg")).getImage().getScaledInstance(310, 135, Image.SCALE_DEFAULT));
     private JLabel imageFond = new JLabel(image);
 
     int x = 11;
@@ -34,11 +39,13 @@ public class CALCULATRICE_APP extends JPanel {
 
     public CALCULATRICE_APP() {
 
+        //Mets en forme la classe Calculatrice qui extends JPanel
         setVisible(true);
         setLayout(null);
         setBounds(86, 120, 310, 525);
-        setBackground(Color.white);
+        setBackground(Color.pink);
 
+        //Mets en forme le JLabel ou les calculs vont s'afficher
         ecran.setBounds(0, 10, 305, 75);
         ecran.setLayout(null);
         ecran.setVisible(true);
@@ -46,6 +53,7 @@ public class CALCULATRICE_APP extends JPanel {
         ecran.setOpaque(false);
         ecran.setHorizontalAlignment(JLabel.RIGHT);
 
+        //Mets en forme le JPanel ou le JLabel Ecran va aller
         panEcran.setVisible(true);
         panEcran.setLayout(null);
         panEcran.setBounds(0, 0, 310, 75);
@@ -54,6 +62,7 @@ public class CALCULATRICE_APP extends JPanel {
         panEcran.add(ecran);
         add(panEcran);
 
+        //Mets en forme le JPanel ou les boutons chiffres vont apparaître
         chiffre.setVisible(true);
         chiffre.setLayout(null);
         chiffre.setBounds(0, 70, 225, 325);
@@ -61,6 +70,7 @@ public class CALCULATRICE_APP extends JPanel {
         chiffre.setBorder(BorderFactory.createLineBorder(Color.black));
         add(chiffre);
 
+        //Mets en forme le JPanel ou les boutons opérateurs vont apparaître
         operateurPanel.setVisible(true);
         operateurPanel.setLayout(null);
         operateurPanel.setBounds(225, 70, 85, 325);
@@ -68,10 +78,10 @@ public class CALCULATRICE_APP extends JPanel {
         operateurPanel.setBorder(BorderFactory.createLineBorder(Color.black));
         add(operateurPanel);
 
+        //Mets en forme l'image du bas de l'écran principal et quand on clique sur l'image un petit message apparaît
         imageFond.setVisible(true);
         imageFond.setLayout(null);
         imageFond.setBounds(0, 340, 310, 235);
-        imageFond.setBorder(BorderFactory.createLineBorder(Color.black));
         imageFond.addMouseListener(new MouseListener() {
                                        @Override
                                        public void mouseClicked(MouseEvent e) {
@@ -104,6 +114,7 @@ public class CALCULATRICE_APP extends JPanel {
         ;
         add(imageFond);
 
+        //Ajoute les boutons dans le JPanel chiffre et ajoute les ActionListener en fonction du numéro de la case du tableau tab_string (Chiffres et opérateurs)
         for( int i = 0; i<tab_string.length; i++) {
             tab_button[i] = new JButton(tab_string[i]);
             tab_button[i].setBounds(x, y, 65, 65);
@@ -158,27 +169,24 @@ public class CALCULATRICE_APP extends JPanel {
             }
         }
     }
+
     //Méthode permettant d'effectuer un calcul selon l'opérateur sélectionné
     private void calcul(){
         if(operateur.equals("+")){
-            chiffre1 = chiffre1 +
-                    Double.valueOf(ecran.getText()).doubleValue();
+            chiffre1 = chiffre1 + Double.valueOf(ecran.getText()).doubleValue();
             ecran.setText(String.valueOf(chiffre1));
         }
         if(operateur.equals("-")){
-            chiffre1 = chiffre1 -
-                    Double.valueOf(ecran.getText()).doubleValue();
+            chiffre1 = chiffre1 - Double.valueOf(ecran.getText()).doubleValue();
             ecran.setText(String.valueOf(chiffre1));
         }
         if(operateur.equals("*")){
-            chiffre1 = chiffre1 *
-                    Double.valueOf(ecran.getText()).doubleValue();
+            chiffre1 = chiffre1 * Double.valueOf(ecran.getText()).doubleValue();
             ecran.setText(String.valueOf(chiffre1));
         }
         if(operateur.equals("/")){
             try{
-                chiffre1 = chiffre1 /
-                        Double.valueOf(ecran.getText()).doubleValue();
+                chiffre1 = chiffre1 / Double.valueOf(ecran.getText()).doubleValue();
                 ecran.setText(String.valueOf(chiffre1));
             } catch(ArithmeticException e) {
                 ecran.setText("0");
